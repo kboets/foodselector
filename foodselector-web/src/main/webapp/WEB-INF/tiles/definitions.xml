@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="mainLayout" template="/WEB-INF/jsp/layout/mainLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/layout/header.jsp" />		
+		<put-attribute name="leftmenu" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp" />		
+	</definition>
+	
+	<definition name="toHome" extends="mainLayout">
+		<put-attribute name="leftmenu" value="/WEB-INF/jsp/home/leftmenu.jsp" /> 
+		<put-attribute name="body" value="/WEB-INF/jsp/home/home.jsp" />
+	</definition>
+	
+	<definition name="toIngredients" extends="mainLayout">
+		<put-attribute name="leftmenu" value="/WEB-INF/jsp/ingredients/leftmenu.jsp" /> 
+		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/overview.jsp" />
+	</definition>
+	
+	<definition name="toMeatOverview" extends="mainLayout">
+		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
+		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/meat/meat_overview.jsp" />
+	</definition>
+	
+	<definition name="toMeatAdd" extends="mainLayout">
+		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
+		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/meat/meat_add.jsp" />
+	</definition>
+	
+	<definition name="toFishOriginOverview" extends="mainLayout">
+		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
+		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/fish/fishOrigin_overview.jsp" />
+	</definition>
+	
+	<definition name="toFishOriginAdd" extends="mainLayout">
+		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
+		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/fish/fishOrigin_add.jsp" />
+	</definition>
+	
+</tiles-definitions>

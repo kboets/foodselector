@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+	<MEAT_ORIGIN MEAT_ORIGIN_ID="1" NAME="varken" MEAT_TYPE="RED" />
+	<MEAT_ORIGIN MEAT_ORIGIN_ID="2" NAME="kip" MEAT_TYPE="WHITE" />
+	<MEAT_ORIGIN MEAT_ORIGIN_ID="3" NAME="kalkoen" MEAT_TYPE="WHITE" />
+	<MEAT_ORIGIN MEAT_ORIGIN_ID="4" NAME="rund" MEAT_TYPE="RED" />
+	
+	<MEAT MEAT_ID="1" NAME="Ardeense hamburger" />
+	
+	<MEAT_MEATORIGINS MEAT_ORIGIN_ID="1" MEAT_ID="1" /> 
+	<MEAT_MEATORIGINS MEAT_ORIGIN_ID="4" MEAT_ID="1" />
+		
+</dataset>

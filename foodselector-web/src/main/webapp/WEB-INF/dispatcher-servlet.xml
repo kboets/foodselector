@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+        
+	<context:component-scan base-package="foodselector.web.base.*" />
+		
+	<mvc:annotation-driven  conversion-service="conversionService"/>
+	
+	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<property name="converters">
+			<set>
+				<bean class="foodselector.web.base.converter.StringToMeatOriginConverter"/>
+			</set>
+		</property>		
+	</bean>
+
+	<mvc:resources mapping="/resources/**" location="/resources/" />	   
+	<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars" />
+
+	 
+	 <!-- <mvc:interceptors>	 	
+	 	<bean id="foodselectorInterceptor" class="foodselector.web.base.interceptor.FoodSelectorInterceptor">
+    		<constructor-arg name="foodSelectorUrl"  value="http://localhost:8080/foodselector" />
+    	</bean>
+	 </mvc:interceptors> -->
+
+	 <bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<array>
+				<value>resourcebundles/messages</value>
+				<value>resourcebundles/errors</value>				
+			</array>
+		</property>		
+	</bean>
+	
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+        	<property name="order" value="1"/>
+    </bean>   
+    
+    <bean id="tilesConfigurer"
+        class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/tiles/definitions.xml</value>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>
