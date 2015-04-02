@@ -43,4 +43,9 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/fish/fishOrigin_add.jsp" />
 	</definition>
 	
+	<definition name="toFishAdd" extends="mainLayout">
+		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
+		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/fish/fish_add.jsp" />
+	</definition>
+	
 </tiles-definitions>

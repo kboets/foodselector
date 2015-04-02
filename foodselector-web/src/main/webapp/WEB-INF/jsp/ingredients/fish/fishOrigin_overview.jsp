@@ -27,7 +27,7 @@
        			<c:choose>
        				<c:when test="${loop.index % 2 == 0}">
        					<div class="content large row">
-       						<div class="col-sm-4"><c:out value="${fishOrigin.name}" /></div>
+       						<div class="col-sm-4"><a href="<c:url value='/fishOriginUpdate/${fishOrigin.id}' />"><c:out value="${fishOrigin.name}" /></a></div>
        						<div class="col-sm-4">
        							<c:forEach items="${fishOrigin.fishs}" var="fish">					
 									<c:choose>
@@ -56,7 +56,7 @@
        				</c:when>
        				<c:otherwise>
        					<div class="content large row" style="background-color:lightgray;">
-       						<div class="col-sm-4"><c:out value="${fishOrigin.name}" /></div>
+       						<div class="col-sm-4"><a href="<c:url value='/fishOriginUpdate/${fishOrigin.id}' />"><c:out value="${fishOrigin.name}" /></a></div>
        						<div class="col-sm-4"><c:forEach items="${fishOrigin.fishs}" var="fish">					
 									<c:choose>
 										<c:when test="${not empty fish}">
