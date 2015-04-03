@@ -26,6 +26,7 @@ import foodselector.domain.enums.FishType;
 import foodselector.service.IFishOriginService;
 import foodselector.service.IFishService;
 import foodselector.web.base.validation.FishOriginValidator;
+import foodselector.web.base.validation.FishValidator;
 
 @Controller
 public class FishController {
@@ -40,11 +41,11 @@ public class FishController {
 	private IFishService fishService;
 	@Autowired
 	private IFishOriginService fishOriginService;
-	
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {	
-		binder.setValidator(new FishOriginValidator());
-	}
+	@Autowired
+	private FishOriginValidator fishOriginValidator;
+	@Autowired
+	private FishValidator fishValidator;
+
 	
 	@RequestMapping(value = "/fishOriginOverview", method = RequestMethod.GET)
 	public String getFishOriginOverview(Model model) {
@@ -78,8 +79,9 @@ public class FishController {
 	
 	@RequestMapping(value = "/fishOriginAdd", method = {RequestMethod.POST, RequestMethod.PUT})
 	public String saveFishOrigin(HttpServletRequest request, @Valid @ModelAttribute("fishOrigin") FishOrigin fishOrigin, 
-			BindingResult result, Model model, RedirectAttributes redirectAttributes) {
-		String action = request.getParameter("action");
+			BindingResult result, Model model, RedirectAttributes redirectAttributes) {		
+		String action = request.getParameter("action");		
+		fishOriginValidator.validate(fishOrigin, result);
 		if("back".equals(action)){
 			return toFishOriginOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){
@@ -92,7 +94,8 @@ public class FishController {
 		}
 		return toFishOriginOverviewRedirect;	
 		
-	}
+	}	
+	
 	
 	@RequestMapping(value = "/fishOriginUpdate/{id}", method = RequestMethod.PUT) 
 	public String updateFishOrigin(HttpServletRequest request, @Valid @ModelAttribute("fishOrigin") FishOrigin fishOrigin, 
@@ -109,6 +112,25 @@ public class FishController {
 			redirectAttributes.addFlashAttribute("success", "fishOriginAdded");	
 		}
 		return toFishOriginOverviewRedirect;	
+	}
+	
+	@RequestMapping(value = "/fishAdd", method = {RequestMethod.POST, RequestMethod.PUT})
+	public String saveFish(HttpServletRequest request, @Valid @ModelAttribute("fish") Fish fish, 
+			BindingResult result, Model model, RedirectAttributes redirectAttributes) {		
+		String action = request.getParameter("action");		
+		fishValidator.validate(fish, result);
+		if("back".equals(action)){
+			return toFishOriginOverviewRedirect;
+		} else if(StringUtils.isEmpty(action) && result.hasErrors()){			
+			model.addAttribute("fishOriginOverview", getAllFishOrigins());			
+			request.setAttribute("exception", "exception.wrong.input");
+			return toFishOriginOverviewRedirect;
+		} else {
+			fishService.save(fish);
+			redirectAttributes.addFlashAttribute("success", "fishAdded");	
+		}
+		return toFishOriginOverviewRedirect;	
+		
 	}
 	
 	private List<FishOrigin> getAllFishOrigins() {

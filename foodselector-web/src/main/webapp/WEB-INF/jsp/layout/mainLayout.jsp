@@ -22,7 +22,7 @@
 <script type="text/javascript"	src="<c:url value='/resources/js/arial.js' />"></script>
 <script type="text/javascript"	src="<c:url value='/resources/js/cuf_run.js'/>"></script>
 <script type="text/javascript"	src="<c:url value='/resources/js/foodselector.js'/>"></script>
-
+<!-- <script type="text/javascript"	src="<c:url value='/resources/js/progressbar.js'/>"></script> -->
 
 <!-- USE WEBJARS 
 <spring:url value="/webjars/jquery/2.0.3/jquery.js" var="jQuery"/>

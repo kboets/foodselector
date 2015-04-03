@@ -13,7 +13,7 @@
 	<!-- <img src="<c:url value='/resources/images/img_1.jpg'/>" alt="" width="585" height="156" /> -->
 	<div class="clr"></div>
 	
-			
+				
 	<div class="content">	
 		This is a free CSS website template by HotWebsiteTemplates.net. This
 		work is distributed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative
@@ -56,21 +56,28 @@ $(document).ready(function(){
 	console.log( "ready!" );
 });
 
+$(function() {
+	$( "#myProgressbar" ).progressbarFS({
+		value : 15
+	});
+});
 
-var bar = $( "#myProgressbar" ).progressbarFS({
-	htmlId:'myProgressbar'	
-}); 
+/* var bar = $( "#myProgressbar" ).progressbarFS({
+	htmlId:'myProgressbar',
+	value :15
+}); */  
 
-//var bar = $( "#myProgressbar" ).progressbarFS();
+//var bar = $( "#myProgressbar" ).progressbarFS().value(15);
+
 //bar.progressbarFS( "option", "htmlId", "myProgressbar");
-bar.progressbarFS( "option", "value", 10);
+//bar.progressbarFS( "option", "value", 10);
 
  
-var bar2 = $( "#myProgressbar2" ).progressbarFS({
+/* var bar2 = $( "#myProgressbar2" ).progressbarFS({
 	htmlId:'myProgressbar2'
-});
+}); */
 //bar2.progressbarFS( "option", "htmlId", "myProgressbar2");
-bar2.progressbarFS( "option", "value", 80);
+//bar2.progressbarFS( "option", "value", 80);
 
 
 
