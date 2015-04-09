@@ -15,6 +15,11 @@
 	    		<i class="icon-ok-sign icon-green"></i> <span> <spring:message code="label.success.${success}"/></span>
 	    	 </div>
        	</c:if>
+       	<c:if test="${not empty exception}">
+       			<div class="alert alert-danger">
+	    			<span><spring:message code="exception.wrong.input"/></span>
+	    	 	</div>
+	    	 </c:if>
        	
        	<c:if test="${not empty fishOriginOverview}">
        	<div class="surrounded">

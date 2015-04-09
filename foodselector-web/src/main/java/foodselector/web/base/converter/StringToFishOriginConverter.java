@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 
 import foodselector.domain.FishOrigin;
-import foodselector.service.FishOriginService;
+import foodselector.service.IFishOriginService;
 
 public class StringToFishOriginConverter implements Converter<String, FishOrigin> {
 
 	@Autowired
-	private FishOriginService fishOriginService;
+	private IFishOriginService fishOriginService;
 	
 	@Override
 	public FishOrigin convert(String name) {
