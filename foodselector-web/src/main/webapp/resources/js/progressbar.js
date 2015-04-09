@@ -22,7 +22,7 @@
 	        		"style": styleElements,
 	        		"id" : progressbarLabelId
 	        	}).text(progress);	             
-	            
+	        this.refresh();
 	    },
 	    
 	    value: function( value ) {
