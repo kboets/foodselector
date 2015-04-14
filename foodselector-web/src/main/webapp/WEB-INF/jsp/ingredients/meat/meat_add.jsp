@@ -20,25 +20,28 @@
 	    	 	</div>
 	    </c:if>
 	    <div class="form-group">
-	    	<form:label path="name" cssClass="control-label col-sm-3"><spring:message code="meat_add_name"/></form:label>
-	    	<div class="col-sm-7">
+	    	<div class="row">
+	    		<form:label path="name" cssClass="control-label col-md-2"><spring:message code="meat_add_name"/></form:label>
+	    		<div class="col-md-3">
 	    	 		<form:input path="name" cssClass="form-control" cssErrorClass="errorFormInput"/>&nbsp;<form:errors path="name" cssClass="error" />
-	    	 </div>
-	    </div>
+	    	 	</div>
+	    	 	<form:label path="name" cssClass="control-label col-md-2"><spring:message code="meat_meatOrigin"/></form:label>
+	    	 	<div class="col-md-5">
+	    	 		<form:select path="meatOrigins" multiple="true" size="${fn:length(meatOverview)}px"  cssErrorClass="errorFormInput">							
+						<form:options items="${meatOverview}" itemLabel="name" itemValue="name"  />					
+					</form:select>
+					<form:errors path="meatOrigins" cssClass="error"/>
+				</div>
+	    	</div>    	
+	    </div>	    
+		
 		<div class="form-group">
-			<form:label path="name" cssClass="control-label col-sm-3"><spring:message code="meat_meatOrigin"/></form:label>
-			<div class="col-sm-7">
-				<form:select path="meatOrigins" multiple="true" size="${fn:length(meatOverview)}px"  cssErrorClass="errorFormInput">							
-					<form:options items="${meatOverview}" itemLabel="name" itemValue="name"  />					
-				</form:select>
-				<form:errors path="meatOrigins" cssClass="error"/>
-			</div>
-		</div>
-		<div class="form-group">
-	    	 <form:label path="info" cssClass="control-label col-sm-3"><spring:message code="meat_add_info"/></form:label>
-	    	 		<div class="col-sm-7">
-	    	 			<form:textarea path="info" cssClass="form-control" />
-	    	 		</div>
+			<div class="row">
+			 	<form:label path="info" cssClass="control-label col-md-2"><spring:message code="meat_add_info"/></form:label>
+				<div class="col-md-5">
+					<form:textarea path="info" cssClass="form-control" />
+				</div>
+			</div>    	 		
 	  	 </div>
 	  	 <div class="buttons">				
 				<button class="btn bold" id="meat_save"><spring:message code="button_save" /></button> 
