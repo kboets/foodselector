@@ -10,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,14 +59,6 @@ public class FishController {
 		return toFishOriginAdd; 
 	}
 	
-	@RequestMapping(value = "/fishAdd", method = RequestMethod.GET)
-	public String addFish(Model model) {
-		Fish fish = new Fish();
-		model.addAttribute("fish", fish);
-		model.addAttribute("fishOrigins", getAllFishOrigins());
-		return toFishAdd; 
-	}
-	
 	@RequestMapping(value = "/fishOriginUpdate/{id}", method = RequestMethod.GET)
 	public String updateFishOrigin(Model model, @PathVariable("id") String id) {
 		FishOrigin fishOrigin = fishOriginService.getById(new Long(id));
@@ -114,6 +104,22 @@ public class FishController {
 		return toFishOriginOverviewRedirect;	
 	}
 	
+	@RequestMapping(value = "/fishAdd", method = RequestMethod.GET)
+	public String addFish(Model model) {
+		Fish fish = new Fish();
+		model.addAttribute("fish", fish);
+		model.addAttribute("fishOrigins", getAllFishOrigins());
+		return toFishAdd; 
+	}
+	
+	@RequestMapping(value = "/fishUpdate/{id}", method = RequestMethod.GET)
+	public String updateFish(Model model, @PathVariable("id") String id) {
+		Fish fish = fishService.getById(new Long(id));		
+		model.addAttribute("fish", fish);
+		model.addAttribute("fishOrigins", getAllFishOrigins());
+		return toFishAdd; 
+	}
+	
 	@RequestMapping(value = "/fishAdd", method = {RequestMethod.POST, RequestMethod.PUT})
 	public String saveFish(HttpServletRequest request, @Valid @ModelAttribute("fish") Fish fish, 
 			BindingResult result, Model model, RedirectAttributes redirectAttributes) {		
@@ -122,16 +128,35 @@ public class FishController {
 		if("back".equals(action)){
 			return toFishOriginOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){			
-			model.addAttribute("fishOriginOverview", getAllFishOrigins());			
+			model.addAttribute("fishOrigins", getAllFishOrigins());			
 			request.setAttribute("exception", "exception.wrong.input");
-			return toFishOriginOverviewRedirect;
+			return toFishAdd;
 		} else {
 			fishService.save(fish);
 			redirectAttributes.addFlashAttribute("success", "fishAdded");	
 		}
+		return toFishOriginOverviewRedirect;		
+	}
+	
+	@RequestMapping(value = "/fishUpdate/{id}", method = {RequestMethod.POST, RequestMethod.PUT})
+	public String updateFish(HttpServletRequest request, @Valid @ModelAttribute("fish") Fish fish, 
+			BindingResult result, Model model, RedirectAttributes redirectAttributes) {		
+		String action = request.getParameter("action");		
+		fishValidator.validate(fish, result);
+		if("back".equals(action)){
+			return toFishOriginOverviewRedirect;
+		} else if(StringUtils.isEmpty(action) && result.hasErrors()){			
+			model.addAttribute("fishOrigins", getAllFishOrigins());			
+			request.setAttribute("exception", "exception.wrong.input");
+			return toFishAdd;
+		} else {
+			fishService.save(fish);
+			redirectAttributes.addFlashAttribute("success", "fishUpdated");	
+		}
 		return toFishOriginOverviewRedirect;	
 		
 	}
+	
 	
 	private List<FishOrigin> getAllFishOrigins() {
 		Iterable<FishOrigin> result = fishOriginService.getAll();

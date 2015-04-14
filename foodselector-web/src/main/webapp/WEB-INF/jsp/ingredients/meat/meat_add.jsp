@@ -12,43 +12,39 @@
 	<input name="action" id="action" type="hidden" />		
 	<input name="_method" type="hidden" value="PUT" />
 	<form:hidden path="id"/>  
-	<div class="content">	
-			 
-			<c:if test="${not empty exception}">
+	
+	<div class="form-horizontal" role="form">
+		<c:if test="${not empty exception}">
        			<div class="alert alert-danger">
 	    			<span><spring:message code="exception.wrong.input"/></span>
 	    	 	</div>
-	    	 </c:if>
-	    	 
-			<table class="content large input-table">
-				<tr>
-					<td><spring:message code="meat_add_name" /><c:out value="${meat.id}"/></td>
-					<td><span style="margin-left: 10px"><form:input path="name" id="meat_name" cssErrorClass="errorFormInput" /><form:errors path="name" cssClass="error"/></span>
-					</td>
-					<td>&nbsp;</td>										
-					<td><spring:message code="meat_meatOrigin" /><td>
-					<td><span style="margin-left: 10px">
-						<form:select path="meatOrigins"    multiple="true" size="${fn:length(meatOverview)}px"  cssErrorClass="errorFormInput">							
-							<form:options items="${meatOverview}" itemLabel="name" itemValue="name"  />													
-						</form:select>
-						<form:errors path="meatOrigins" cssClass="error"/></span>
-					</td>
-					
-				</tr>
-				<tr>
-					<td><spring:message code="meat_add_info" /></td>
-					<td><span style="margin-left: 10px"><form:textarea path="info" id="meat_info"  cols="35" /></span></td>
-				</tr>			
-				<tr>
-					<td>&nbsp;</td>
-				</tr>	
-			</table>
-			
-			<div class="buttons">				
+	    </c:if>
+	    <div class="form-group">
+	    	<form:label path="name" cssClass="control-label col-sm-3"><spring:message code="meat_add_name"/></form:label>
+	    	<div class="col-sm-7">
+	    	 		<form:input path="name" cssClass="form-control" cssErrorClass="errorFormInput"/>&nbsp;<form:errors path="name" cssClass="error" />
+	    	 </div>
+	    </div>
+		<div class="form-group">
+			<form:label path="name" cssClass="control-label col-sm-3"><spring:message code="meat_meatOrigin"/></form:label>
+			<div class="col-sm-7">
+				<form:select path="meatOrigins" multiple="true" size="${fn:length(meatOverview)}px"  cssErrorClass="errorFormInput">							
+					<form:options items="${meatOverview}" itemLabel="name" itemValue="name"  />					
+				</form:select>
+				<form:errors path="meatOrigins" cssClass="error"/>
+			</div>
+		</div>
+		<div class="form-group">
+	    	 <form:label path="info" cssClass="control-label col-sm-3"><spring:message code="meat_add_info"/></form:label>
+	    	 		<div class="col-sm-7">
+	    	 			<form:textarea path="info" cssClass="form-control" />
+	    	 		</div>
+	  	 </div>
+	  	 <div class="buttons">				
 				<button class="btn bold" id="meat_save"><spring:message code="button_save" /></button> 
 				<button class="btn bold" id="meat_back"><spring:message code="button_back" /></button>
-			</div>						
-	</div>
+			</div>
+	</div>	
 	</form:form>
 </div>
 <script>

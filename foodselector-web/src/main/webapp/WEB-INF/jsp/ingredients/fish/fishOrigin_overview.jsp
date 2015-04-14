@@ -37,7 +37,7 @@
        							<c:forEach items="${fishOrigin.fishs}" var="fish">					
 									<c:choose>
 										<c:when test="${not empty fish}">
-											<c:out value="${fish.name}" /><br/>
+											<a href="<c:url value='/fishUpdate/${fish.id}' />"><c:out value="${fish.name}" /></a><br/>
 										</c:when>
 										<c:otherwise>&nbsp;</c:otherwise>
 									</c:choose>					
@@ -65,7 +65,7 @@
        						<div class="col-sm-4"><c:forEach items="${fishOrigin.fishs}" var="fish">					
 									<c:choose>
 										<c:when test="${not empty fish}">
-											<c:out value="${fish.name}" /><br/>
+											<a href="<c:url value='/fishUpdate/${fish.id}' />"><c:out value="${fish.name}" /></a><br/>
 										</c:when>
 										<c:otherwise>&nbsp;</c:otherwise>
 									</c:choose>					

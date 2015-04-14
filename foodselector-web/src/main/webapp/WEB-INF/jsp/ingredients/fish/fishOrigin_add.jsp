@@ -31,7 +31,7 @@
 	    	 	<form:label path="name" cssClass="control-label col-sm-3"><spring:message code="fish_type"/></form:label>
 	    	 	<div class="col-sm-7">
 	    	 		<form:select path="fishType" cssErrorClass="errorFormInput">
-	    	 			<form:options items="${fishTypes}"/>
+	    	 			<form:options items="${fishTypes} "/>
 	    	 		</form:select>
 	    	 	</div>
 	    	 </div>
