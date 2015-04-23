@@ -2,12 +2,16 @@ package foodselector.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import foodselector.domain.enums.Availability;
 
 @Entity
 @Table(name="VEGETABLES")
@@ -27,9 +31,14 @@ public class Vegetables extends AbstractEntity {
 	private String info;
 
 	@ManyToOne
-	@JoinColumn(name="id")
+	@JoinColumn(name="vegetables_vf_id")
 	private VegetablesFamily vegetablesFamily;
 
+	@Enumerated(EnumType.STRING)
+	@Column(name="AVAILABILITY")
+	private Availability availability;
+	
+	
 	public Long getId() {
 		return id;
 	}

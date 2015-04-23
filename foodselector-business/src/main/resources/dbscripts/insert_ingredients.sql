@@ -35,3 +35,15 @@ insert into FISH(name, info, fish_fishOrigin_id) values('fishstick', 'TODO', 5);
 insert into FISH(name, info, fish_fishOrigin_id) values('kabeljauwfilet', 'TODO', 5);
 insert into FISH(name, info, fish_fishOrigin_id) values('gerookte zalm', 'TODO', 2);
 insert into FISH(name, info, fish_fishOrigin_id) values('rolmops', 'TODO', 4);
+
+/** vegetable family */
+insert into VEGETABLES_FAMILY(name, info) values('BLADGROENTEN', 'Bladgroenten komen van planten met goed ontwikkelde bladeren. Het zijn die bladeren die worden opgegeten. Ze bevatten veel vitaminen en mineralen en worden zowel gekookt als rauw gegeten.');
+insert into VEGETABLES_FAMILY(name, info) values('KOOLSOORTEN',' Koolsoorten bevatten veel vezels, vitamine A en C. Bovendien zijn ze calorie-arm. Er is binnen deze familie veel variatie mogelijk.');
+insert into VEGETABLES_FAMILY(name, info) values('PEULVRUCHTEN','Eens gekookt, zitten er veel voedingsstoffen in bonen: eiwitten, vitamine A en C, calcium en fosfor');
+
+/** vegetables */
+insert into VEGETABLES (name, info, vegetables_vf_id) values('Witloof','Klaarmaken met bruine suiker', 1);
+insert into VEGETABLES (name, info, vegetables_vf_id) values('Spinazie','TODO', 1);
+insert into VEGETABLES (name, info, vegetables_vf_id) values('Bloemkool','', 2);
+insert into VEGETABLES (name, info, vegetables_vf_id) values('Bonen','', 3);
+
