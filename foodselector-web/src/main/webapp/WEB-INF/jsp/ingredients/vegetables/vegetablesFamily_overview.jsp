@@ -3,4 +3,13 @@
 
 <div class="right_body">
 	
+	<h2>
+		<spring:message code="vegetablesOrigin_overview_title" />
+	</h2>	
+			
+	<div class="clr"></div>
+	
+	<div class="content">
+		
+	</div>			
 </div>
