@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class VegetablesFamily extends AbstractEntity {
 	@Column(name="INFO")
 	private String info;
 	
-	@OneToMany(mappedBy="vegetablesFamily")	
+	@OneToMany(mappedBy="vegetablesFamily", fetch=FetchType.EAGER)	
 	private Set<Vegetables> vegetables;
 	
 	public Long getId() {

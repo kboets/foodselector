@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.common.collect.Lists;
 
-import foodselector.domain.Vegetables;
 import foodselector.domain.VegetablesFamily;
 import foodselector.service.IVegetablesFamilyService;
 import foodselector.service.IVegetablesService;
