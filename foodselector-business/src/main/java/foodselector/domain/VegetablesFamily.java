@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.junit.ClassRule;
+
 @Entity
 @Table(name="VEGETABLES_FAMILY")
 public class VegetablesFamily extends AbstractEntity {
@@ -26,7 +28,7 @@ public class VegetablesFamily extends AbstractEntity {
 	@Column(name="NAME", nullable=false)
 	private String name;
 	
-	@Column(name="INFO")
+	@Column(name="INFO", columnDefinition="CLOB")	
 	private String info;
 	
 	@OneToMany(mappedBy="vegetablesFamily", fetch=FetchType.EAGER)	

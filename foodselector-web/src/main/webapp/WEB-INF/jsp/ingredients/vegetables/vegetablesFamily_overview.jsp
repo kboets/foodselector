@@ -24,8 +24,8 @@
 	<c:if test="${not empty vegetablesFamilyOverview}">
 		<c:forEach items="${vegetablesFamilyOverview}" var="vegetablesFamily" >
 			<div class="row">
-				<div class="col-sm-1">
-					<c:out value="${vegetablesFamily.name}"  />					
+				<div class="col-sm-2">
+					<strong><c:out value="${vegetablesFamily.name}"  /></strong>					
 				</div>
 			</div>
 			<div class="row">	
@@ -41,5 +41,14 @@
 				</div>
 			</div>		
 		</c:forEach>
-	</c:if>		
+	</c:if>
+	<div class="buttons">
+		<button class="btn bold" id="vegetablesFamily_add"><spring:message code="button_add" /></button>
+	</div>		
 </div>
+
+<script>
+$("#vegetablesFamily_add").click(function() {
+	window.location="/foodselector/vegetablesFamilyAdd";
+});
+</script>

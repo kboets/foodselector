@@ -27,7 +27,7 @@ public class Vegetables extends AbstractEntity {
 	@Column(name="NAME", nullable=false)
 	private String name;
 	
-	@Column(name="INFO")
+	@Column(name="INFO", columnDefinition="CLOB")
 	private String info;
 
 	@ManyToOne

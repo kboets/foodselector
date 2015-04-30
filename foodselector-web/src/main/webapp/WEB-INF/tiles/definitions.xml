@@ -53,4 +53,9 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/vegetables/vegetablesFamily_overview.jsp" />	
 	</definition>
 	
+	<definition name="toVegetablesFamilyAdd" extends="mainLayout">
+		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
+		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/vegetables/vegetablesFamily_add.jsp" />	
+	</definition>
+	
 </tiles-definitions>
