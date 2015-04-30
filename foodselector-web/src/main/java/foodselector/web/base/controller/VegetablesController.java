@@ -3,6 +3,7 @@ package foodselector.web.base.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +12,14 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.common.collect.Lists;
 
-import foodselector.domain.FishOrigin;
 import foodselector.domain.VegetablesFamily;
-import foodselector.domain.enums.FishType;
 import foodselector.service.IVegetablesFamilyService;
 import foodselector.service.IVegetablesService;
 import foodselector.web.base.validation.VegetablesFamilyValidator;
@@ -50,12 +50,17 @@ public class VegetablesController {
 		model.addAttribute("vegetablesFamily", vegetablesFamily);
 		return toVegetablesFamilyAdd;
 	}
+	@RequestMapping(value = "/vegetablesFamilyUpdate/{id}", method = RequestMethod.GET)
+	public String updateVegetablesFamily(Model model, @PathVariable("id") String id) {
+		VegetablesFamily vegetablesFamily = vegetablesFamilyService.getById(new Long(id));
+		model.addAttribute("vegetablesFamily", vegetablesFamily);
+		return toVegetablesFamilyAdd;
+	}
 	
 	@RequestMapping(value = "/vegetablesFamilyAdd", method = {RequestMethod.POST, RequestMethod.PUT})
 	public String saveVegetablesFamily(HttpServletRequest request, @Valid @ModelAttribute("vegetablesFamily") VegetablesFamily vegetablesFamily, 
 			BindingResult result, Model model, RedirectAttributes redirectAttributes) {		
-		String action = request.getParameter("action");		
-		
+		String action = request.getParameter("action");				
 		if("back".equals(action)){
 			return toVegetablesFamilyOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){			
@@ -67,6 +72,22 @@ public class VegetablesController {
 		}
 		return toVegetablesFamilyOverviewRedirect;	
 		
+	}
+	@RequestMapping(value = "/vegetablesFamilyUpdate/{id}", method = {RequestMethod.POST, RequestMethod.PUT})
+	public String updateVegetablesFamily(HttpServletRequest request, @Valid @ModelAttribute("vegetablesFamily") VegetablesFamily vegetablesFamily, 
+			BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+		String action = request.getParameter("action");
+		if("back".equals(action)){
+			return toVegetablesFamilyOverviewRedirect;
+		} else if(StringUtils.isEmpty(action) && result.hasErrors()){			
+			request.setAttribute("exception", "exception.wrong.input");
+			return "toVegetablesFamilyAdd";
+		} else {
+			vegetablesFamilyService.save(vegetablesFamily);
+			redirectAttributes.addFlashAttribute("success", "vegetablesFamily");	
+		}
+		
+		return toVegetablesFamilyOverviewRedirect;	
 	}
 
 	private List<VegetablesFamily> getAllVegetablesFamilies() {

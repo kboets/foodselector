@@ -30,7 +30,7 @@
 	    	 <div class="form-group">
 	    	 	<form:label path="info" cssClass="control-label col-sm-3"><spring:message code="fishOrigin_add_info"/></form:label>
 	    	 		<div class="col-sm-7">
-	    	 			<form:textarea path="info" cssClass="form-control" />
+	    	 			<form:textarea path="info" cssClass="form-control"  rows="8"  />
 	    	 		</div>
 	    	 </div>
 	    	 

@@ -17,13 +17,13 @@
 			<set>
 				<bean class="foodselector.web.base.converter.StringToMeatOriginConverter"/>
 				<bean class="foodselector.web.base.converter.StringToFishOriginConverter" />
-				<bean class="foodselector.web.base.converter.IDToFishOriginConverter" />
+				<bean class="foodselector.web.base.converter.IDToFishOriginConverter" />				
 			</set>
 		</property>		
 	</bean>
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />	   
-	<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars" />
+	
 
 	 
 	 <!-- <mvc:interceptors>	 	

@@ -25,7 +25,7 @@
 		<c:forEach items="${vegetablesFamilyOverview}" var="vegetablesFamily" >
 			<div class="row">
 				<div class="col-sm-2">
-					<strong><c:out value="${vegetablesFamily.name}"  /></strong>					
+					<strong><a href="<c:url value='/vegetablesFamilyUpdate/${vegetablesFamily.id}' />"><c:out value="${vegetablesFamily.name}"  /></a></strong>					
 				</div>
 			</div>
 			<div class="row">	
