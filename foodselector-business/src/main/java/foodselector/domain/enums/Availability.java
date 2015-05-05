@@ -1,5 +1,7 @@
 package foodselector.domain.enums;
 
+import java.util.List;
+
 public enum Availability {
 
 	WINTER("vegetables.availability.winter"), SUMMER("vegetables.availability.summer"), ALWAYS("vegetables.availability.always");
@@ -13,5 +15,9 @@ public enum Availability {
 	public String getCode() {
 		return code;
 	}	
+	
+	public String valueOf(Availability availability) {
+		return availability.code;
+	}
 	
 }

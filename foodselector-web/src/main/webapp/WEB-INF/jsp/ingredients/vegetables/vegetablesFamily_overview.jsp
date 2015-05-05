@@ -43,7 +43,8 @@
 		</c:forEach>
 	</c:if>
 	<div class="buttons">
-		<button class="btn bold" id="vegetablesFamily_add"><spring:message code="button_add" /></button>
+		<button class="btn bold" id="vegetables_add"><spring:message code="vegetables_add_button" /></button>
+		<button class="btn bold" id="vegetablesFamily_add"><spring:message code="vegetablesFamily_add_button" /></button>
 	</div>		
 </div>
 
@@ -51,4 +52,9 @@
 $("#vegetablesFamily_add").click(function() {
 	window.location="/foodselector/vegetablesFamilyAdd";
 });
+
+$("#vegetables_add").click(function() {
+	window.location="/foodselector/vegetablesAdd";
+});
+
 </script>

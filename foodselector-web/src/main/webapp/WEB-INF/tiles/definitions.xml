@@ -22,7 +22,7 @@
 		<put-attribute name="leftmenu" value="/WEB-INF/jsp/ingredients/leftmenu.jsp" /> 
 		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/overview.jsp" />
 	</definition>
-	
+	<!-- MEAT -->
 	<definition name="toMeatOverview" extends="mainLayout">
 		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
 		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/meat/meat_overview.jsp" />
@@ -32,7 +32,7 @@
 		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
 		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/meat/meat_add.jsp" />
 	</definition>
-	
+	<!-- FISH -->
 	<definition name="toFishOriginOverview" extends="mainLayout">
 		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
 		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/fish/fishOrigin_overview.jsp" />
@@ -47,7 +47,7 @@
 		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
 		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/fish/fish_add.jsp" />
 	</definition>
-	
+	<!-- VEGETABLES -->
 	<definition name="toVegetablesFamilyOverview" extends="mainLayout">
 		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
 		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/vegetables/vegetablesFamily_overview.jsp" />	
@@ -57,5 +57,13 @@
 		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
 		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/vegetables/vegetablesFamily_add.jsp" />	
 	</definition>
+	
+	<definition name="toVegetablesAdd" extends="mainLayout">
+		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
+		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/vegetables/vegetables_add.jsp" />	
+	</definition>
+	
+	
+	
 	
 </tiles-definitions>

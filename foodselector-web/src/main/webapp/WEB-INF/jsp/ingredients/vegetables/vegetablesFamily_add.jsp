@@ -9,9 +9,10 @@
 
 	<div class="clr"></div>	
 	
-	<form:form id="addVegetables_form" method="POST" modelAttribute="vegetablesFamily" cssClass="form-horizontal">		
+	<form:form id="addVegetablesFamily_form" method="POST" modelAttribute="vegetablesFamily" cssClass="form-horizontal">		
 		<input name="action" id="action" type="hidden" />		
 		<input name="_method" type="hidden" value="PUT" />
+		
 		<div class="form-horizontal" role="form">
 			
 			<c:if test="${not empty exception}">

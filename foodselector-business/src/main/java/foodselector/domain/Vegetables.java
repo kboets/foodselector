@@ -66,6 +66,14 @@ public class Vegetables extends AbstractEntity {
 	public void setVegetablesFamily(VegetablesFamily vegetablesFamily) {
 		this.vegetablesFamily = vegetablesFamily;
 	}
+
+	public Availability getAvailability() {
+		return availability;
+	}
+
+	public void setAvailability(Availability availability) {
+		this.availability = availability;
+	}
 	
 	
 }

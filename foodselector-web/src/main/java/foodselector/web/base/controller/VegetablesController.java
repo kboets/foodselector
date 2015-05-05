@@ -19,7 +19,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.common.collect.Lists;
 
+import foodselector.domain.Vegetables;
 import foodselector.domain.VegetablesFamily;
+import foodselector.domain.enums.Availability;
 import foodselector.service.IVegetablesFamilyService;
 import foodselector.service.IVegetablesService;
 import foodselector.web.base.validation.VegetablesFamilyValidator;
@@ -31,6 +33,7 @@ public class VegetablesController {
 	private static final String toVegetablesFamilyOverview = "toVegetablesFamilyOverview";
 	private final static String toVegetablesFamilyOverviewRedirect = "redirect:/vegetablesFamilyOverview";
 	private static final String toVegetablesFamilyAdd = "toVegetablesFamilyAdd";
+	private static final String toVegetablesAdd = "toVegetablesAdd";
 	
 	@Autowired
 	private IVegetablesService vegetablesService;
@@ -75,7 +78,7 @@ public class VegetablesController {
 	}
 	@RequestMapping(value = "/vegetablesFamilyUpdate/{id}", method = {RequestMethod.POST, RequestMethod.PUT})
 	public String updateVegetablesFamily(HttpServletRequest request, @Valid @ModelAttribute("vegetablesFamily") VegetablesFamily vegetablesFamily, 
-			BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+			@PathVariable("id") String id, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
 		String action = request.getParameter("action");
 		if("back".equals(action)){
 			return toVegetablesFamilyOverviewRedirect;
@@ -83,17 +86,27 @@ public class VegetablesController {
 			request.setAttribute("exception", "exception.wrong.input");
 			return "toVegetablesFamilyAdd";
 		} else {
+			vegetablesFamily.setId(new Long(id));
 			vegetablesFamilyService.save(vegetablesFamily);
-			redirectAttributes.addFlashAttribute("success", "vegetablesFamily");	
+			redirectAttributes.addFlashAttribute("success", "vegetablesFamilyUpdated");	
 		}
 		
 		return toVegetablesFamilyOverviewRedirect;	
+	}
+	
+	@RequestMapping(value = "/vegetablesAdd", method = RequestMethod.GET)
+	public String updateVegetables(Model model) {
+		Vegetables vegetables = new Vegetables();
+		model.addAttribute("vegetables", vegetables);		
+		model.addAttribute("availabilities", Availability.values());
+		return toVegetablesAdd;
 	}
 
 	private List<VegetablesFamily> getAllVegetablesFamilies() {
 		Iterable<VegetablesFamily> iterable = vegetablesFamilyService.getAll(); 
 		return Lists.newArrayList(iterable);
 	}
+	
 	
 	
 }
