@@ -48,7 +48,7 @@ public class VegetablesController {
 		return toVegetablesFamilyOverview;
 	}
 	@RequestMapping(value = "/vegetablesFamilyAdd", method = RequestMethod.GET)
-	public String addVegetablesFamily(Model model) {
+	public String getVegetablesFamily(Model model) {
 		VegetablesFamily vegetablesFamily = new VegetablesFamily();
 		model.addAttribute("vegetablesFamily", vegetablesFamily);
 		return toVegetablesFamilyAdd;
@@ -95,11 +95,27 @@ public class VegetablesController {
 	}
 	
 	@RequestMapping(value = "/vegetablesAdd", method = RequestMethod.GET)
-	public String updateVegetables(Model model) {
+	public String getUpdateVegetables(Model model) {
 		Vegetables vegetables = new Vegetables();
 		model.addAttribute("vegetables", vegetables);		
 		model.addAttribute("availabilities", Availability.values());
+		model.addAttribute("vegetablesFamilies", getAllVegetablesFamilies());		
 		return toVegetablesAdd;
+	}
+	@RequestMapping(value = "/vegetablesAdd", method = {RequestMethod.POST, RequestMethod.PUT})
+	public String saveVegetables(HttpServletRequest request, @Valid @ModelAttribute("vegetables") Vegetables vegetables, 
+			BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+		String action = request.getParameter("action");
+		if("back".equals(action)) {
+			return toVegetablesFamilyOverviewRedirect;
+		} else if(StringUtils.isEmpty(action) && result.hasErrors()){	
+			
+		} else {
+			vegetablesService.save(vegetables);		
+			redirectAttributes.addFlashAttribute("success", "vegetables");	
+		}
+		
+		return toVegetablesFamilyOverviewRedirect;
 	}
 
 	private List<VegetablesFamily> getAllVegetablesFamilies() {

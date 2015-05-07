@@ -33,10 +33,38 @@
 	    	 			</c:forEach> 	    	 			
 	    	 		</form:select>
 	    	 	</div>
-	    	 </div>  	 
-	    	 	    	
+	    	 </div>
+	    	 <div class="form-group">
+	    	 	<form:label path="vegetablesFamily" cssClass="control-label col-sm-3"><spring:message code="vegetablesFamily"/></form:label>
+	    	 		<div class="col-sm-7">
+	    	 		<form:select path="vegetablesFamily" cssErrorClass="errorFormInput">	    
+	    	 			 <form:options items="${vegetablesFamilies}" itemLabel="name" itemValue="id"  />	    	 				
+	    	 		</form:select>
+	    	 	</div>
+	    	 </div>	    	 
+	    	 <div class="form-group">
+	    	 	<form:label path="info" cssClass="control-label col-sm-3"><spring:message code="fishOrigin_add_info"/></form:label>
+	    	 		<div class="col-sm-7">
+	    	 			<form:textarea path="info" cssClass="form-control" />
+	    	 		</div>
+	    	 </div> 	 
+	    	  
+	    	 <div class="buttons">
+	    	 	<button class="btn bold" id="vegetables_save"><spring:message code="button_save" /></button> 
+				<button class="btn bold" id="vegetables_back"><spring:message code="button_back" /></button>
+	    	 </div>	    	
 		</div>
 		
 	</form:form>
 
 </div>
+
+<script type="text/javascript">
+$('#vegetables_back').click(function(){	
+	$('#action').val('back');	
+});
+
+$('#vegetables_save').click(function(){
+	$('#addVegetables_form').submit();
+});  
+</script>
