@@ -57,3 +57,12 @@ insert into VEGETABLES (name, info, vegetables_vf_id) values('Schorseneren','', 
 insert into VEGETABLES (name, info, vegetables_vf_id) values('Asperges','Asperges zijn een bijzonder voedzame groente. Er zit een groot aantal verschillende vitaminen in. ', 5);
 insert into VEGETABLES (name, info, vegetables_vf_id) values('Ajuin','Uien zitten vol met vitamine C. Verder zit er redelijk wat B6 en B11 in. ', 5);
 insert into VEGETABLES (name, info, vegetables_vf_id) values('Prei','Het vermindert cholesterol en belemmert schadelijke enzymen in de lever. Bovendien verschaft het 52% ADH vitamine K en meer dan 29% ADH vitamine A. Dan bevat prei ook nog foliumzuur, niacine, riboflavine, magnesium en thiamine.', 5);
+
+/** pasta */
+insert into PASTA(name, info) values('SPAGHETTI', 'Een ronde pastasliert die verschillende diktes kan hebben');
+insert into PASTA(name, info) values('TAGLIATELLI', 'Tagliatelle zijn pastalinten van 7 à 8 mm die soms ook wel fettucine genoemd worden');
+insert into PASTA(name, info) values('LASAGNE' ,'Lasagnebladeren zijn dunne deegvellen van circa 10 cm op 15 cm');
+insert into PASTA(name, info) values('MACARONI' ,'Het zijn holle deegbuizen zijn een typische Napolitaanse specialiteit');
+insert into PASTA(name, info) values('PENNE' ,'Penne’s zijn schuin afgesneden langwerpige buisjes');
+
+
