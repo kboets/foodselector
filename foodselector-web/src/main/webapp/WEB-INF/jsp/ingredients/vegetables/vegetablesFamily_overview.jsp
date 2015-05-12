@@ -34,7 +34,7 @@
 					<c:forEach items="${vegetablesFamily.vegetables}" var="vegetables">
 						<c:choose>		
 							<c:when test="${not empty vegetables}">
-								<c:out value="${vegetables.name}"/><br/>
+								<a href="<c:url value='/vegetablesUpdate/${vegetables.id}' />"><c:out value="${vegetables.name}"/></a><br/>
 							</c:when>
 						</c:choose>
 					</c:forEach>	
@@ -42,7 +42,8 @@
 			</div>		
 		</c:forEach>
 	</c:if>
-	<div class="buttons">
+	
+	<div class="buttons" style="margin-top: 10px">
 		<button class="btn bold" id="vegetables_add"><spring:message code="vegetables_add_button" /></button>
 		<button class="btn bold" id="vegetablesFamily_add"><spring:message code="vegetablesFamily_add_button" /></button>
 	</div>		

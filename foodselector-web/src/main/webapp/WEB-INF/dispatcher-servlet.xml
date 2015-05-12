@@ -19,14 +19,13 @@
 				<bean class="foodselector.web.base.converter.StringToFishOriginConverter" />
 				<bean class="foodselector.web.base.converter.IDToFishOriginConverter" />		
 				<bean class="foodselector.web.base.converter.IdToVegetablesConverter" />
+				<bean class="foodselector.web.base.converter.IDToVegetablesFamilyConverter" />
 			</set>
 		</property>		
 	</bean>
 
-	<mvc:resources mapping="/resources/**" location="/resources/" />	   
-	
-
-	 
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+		 
 	 <!-- <mvc:interceptors>	 	
 	 	<bean id="foodselectorInterceptor" class="foodselector.web.base.interceptor.FoodSelectorInterceptor">
     		<constructor-arg name="foodSelectorUrl"  value="http://localhost:8080/foodselector" />

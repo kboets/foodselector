@@ -35,10 +35,11 @@
 	    	 	</div>
 	    	 </div>
 	    	 <div class="form-group">
-	    	 	<form:label path="vegetablesFamily" cssClass="control-label col-sm-3"><spring:message code="vegetablesFamily"/></form:label>
+	    	 	<form:label path="vegetablesFamily" cssClass="control-label col-sm-3"><spring:message code="vegetablesFamily"/><c:out value="${vegetablesFamily.id}" /></form:label>
 	    	 		<div class="col-sm-7">
-	    	 		<form:select path="vegetablesFamily" cssErrorClass="errorFormInput">	    
-	    	 			 <form:options items="${vegetablesFamilies}" itemLabel="name" itemValue="id"  />	    	 				
+	    	 		<form:select path="vegetablesFamily" >	    
+	    	 			  <form:option  value="${vegetables.vegetablesFamily.id}" ><c:out value="${vegetables.vegetablesFamily.name}"/></form:option>	
+	    	 			  <form:options items="${vegetablesFamilies}" itemValue="id" itemLabel="name"/> 	 				
 	    	 		</form:select>
 	    	 	</div>
 	    	 </div>	    	 
