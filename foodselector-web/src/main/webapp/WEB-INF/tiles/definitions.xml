@@ -63,6 +63,10 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/vegetables/vegetables_add.jsp" />	
 	</definition>
 	
+	<definition name="toPastaOverview" extends="mainLayout">
+		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
+		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/pasta/pasta_add.jsp" />	
+	</definition>
 	
 	
 	
