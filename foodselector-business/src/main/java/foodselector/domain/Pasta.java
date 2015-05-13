@@ -17,7 +17,7 @@ public class Pasta extends AbstractEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="MEAT_ID")
+	@Column(name="PASTA_ID")
 	private Long id;
 	
 	@Column(name="NAME", nullable=false)
