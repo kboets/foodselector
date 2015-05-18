@@ -11,6 +11,8 @@
 	<form:form id="addFish_form" method="POST" modelAttribute="fish" cssClass="form-horizontal">
 		<input name="action" id="action" type="hidden" />		
 		<input name="_method" type="hidden" value="PUT" />
+		<form:hidden path="id"/> 	
+		
 		<div class="form-horizontal" role="form">
 			<c:if test="${not empty exception}">
        			<div class="alert alert-danger">

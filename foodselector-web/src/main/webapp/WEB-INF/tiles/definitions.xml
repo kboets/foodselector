@@ -65,9 +65,13 @@
 	
 	<definition name="toPastaOverview" extends="mainLayout">
 		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
-		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/pasta/pasta_add.jsp" />	
+		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/pasta/pasta_overview.jsp" />	
 	</definition>
 	
+	<definition name="toPastaAdd" extends="mainLayout">
+		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
+		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/pasta/pasta_add.jsp" />	
+	</definition>
 	
 	
 </tiles-definitions>

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,6 +47,16 @@ public class FishController {
 	private FishValidator fishValidator;
 
 	
+	@InitBinder("fishOrigin")
+	public void initFishOriginBinder(WebDataBinder binder) {	
+		binder.setValidator(new FishOriginValidator());
+		
+	}
+	@InitBinder("fish")
+	public void initFishBinder(WebDataBinder binder) {
+		binder.setValidator(new FishValidator());
+	}
+	
 	@RequestMapping(value = "/fishOriginOverview", method = RequestMethod.GET)
 	public String getFishOriginOverview(Model model) {
 		model.addAttribute("fishOriginOverview", getAllFishOrigins());
@@ -71,7 +83,6 @@ public class FishController {
 	public String saveFishOrigin(HttpServletRequest request, @Valid @ModelAttribute("fishOrigin") FishOrigin fishOrigin, 
 			BindingResult result, Model model, RedirectAttributes redirectAttributes) {		
 		String action = request.getParameter("action");		
-		fishOriginValidator.validate(fishOrigin, result);
 		if("back".equals(action)){
 			return toFishOriginOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){
@@ -123,8 +134,7 @@ public class FishController {
 	@RequestMapping(value = "/fishAdd", method = {RequestMethod.POST, RequestMethod.PUT})
 	public String saveFish(HttpServletRequest request, @Valid @ModelAttribute("fish") Fish fish, 
 			BindingResult result, Model model, RedirectAttributes redirectAttributes) {		
-		String action = request.getParameter("action");		
-		fishValidator.validate(fish, result);
+		String action = request.getParameter("action");	
 		if("back".equals(action)){
 			return toFishOriginOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){			
@@ -142,7 +152,6 @@ public class FishController {
 	public String updateFish(HttpServletRequest request, @Valid @ModelAttribute("fish") Fish fish, 
 			BindingResult result, Model model, RedirectAttributes redirectAttributes) {		
 		String action = request.getParameter("action");		
-		fishValidator.validate(fish, result);
 		if("back".equals(action)){
 			return toFishOriginOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){			

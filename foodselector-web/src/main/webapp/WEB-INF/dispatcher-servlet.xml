@@ -19,7 +19,7 @@
 				<bean class="foodselector.web.base.converter.StringToFishOriginConverter" />
 				<bean class="foodselector.web.base.converter.IDToFishOriginConverter" />		
 				<bean class="foodselector.web.base.converter.IdToVegetablesConverter" />
-				<bean class="foodselector.web.base.converter.IDToVegetablesFamilyConverter" />
+				<bean class="foodselector.web.base.converter.IdToVegetablesFamilyConverter" />
 			</set>
 		</property>		
 	</bean>

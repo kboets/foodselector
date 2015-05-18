@@ -6,7 +6,7 @@ import org.springframework.core.convert.converter.Converter;
 import foodselector.domain.VegetablesFamily;
 import foodselector.service.IVegetablesFamilyService;
 
-public class IDToVegetablesFamilyConverter implements Converter<String, VegetablesFamily> {
+public class IdToVegetablesFamilyConverter implements Converter<String, VegetablesFamily> {
 
 	@Autowired
 	private IVegetablesFamilyService vegetablesFamilyService;
