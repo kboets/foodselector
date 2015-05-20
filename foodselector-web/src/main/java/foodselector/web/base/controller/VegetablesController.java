@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,7 @@ import foodselector.domain.enums.Availability;
 import foodselector.service.IVegetablesFamilyService;
 import foodselector.service.IVegetablesService;
 import foodselector.web.base.validation.VegetablesFamilyValidator;
+import foodselector.web.base.validation.VegetablesValidator;
 
 
 @Controller
@@ -41,6 +44,16 @@ public class VegetablesController {
 	private IVegetablesFamilyService vegetablesFamilyService;
 	@Autowired
 	private VegetablesFamilyValidator vegetablesFamilyValidator;
+	
+	@InitBinder("vegetablesFamily")
+	public void initVegetablesFamilyBinder(WebDataBinder binder) {
+		binder.setValidator(new VegetablesFamilyValidator());
+	}
+	
+	@InitBinder("vegetables")
+	public void initVegetablesBinder(WebDataBinder binder) {
+		binder.setValidator(new VegetablesValidator());
+	}
 	
 	@RequestMapping(value = "/vegetablesFamilyOverview", method = RequestMethod.GET)
 	public String getVegetablesFamilyOverview(Model model) {		
@@ -78,15 +91,14 @@ public class VegetablesController {
 	}
 	@RequestMapping(value = "/vegetablesFamilyUpdate/{id}", method = {RequestMethod.POST, RequestMethod.PUT})
 	public String updateVegetablesFamily(HttpServletRequest request, @Valid @ModelAttribute("vegetablesFamily") VegetablesFamily vegetablesFamily, 
-			@PathVariable("id") String id, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+			BindingResult result, Model model, RedirectAttributes redirectAttributes) {
 		String action = request.getParameter("action");
 		if("back".equals(action)){
 			return toVegetablesFamilyOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){			
 			request.setAttribute("exception", "exception.wrong.input");
 			return "toVegetablesFamilyAdd";
-		} else {
-			vegetablesFamily.setId(new Long(id));
+		} else {			
 			vegetablesFamilyService.save(vegetablesFamily);
 			redirectAttributes.addFlashAttribute("success", "vegetablesFamilyUpdated");	
 		}
@@ -120,8 +132,10 @@ public class VegetablesController {
 		if("back".equals(action)) {
 			return toVegetablesFamilyOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){	
-			request.setAttribute("exception", "exception.wrong.input");
-			return toVegetablesAddRedirect;
+			request.setAttribute("exception", "exception.wrong.input");					
+			model.addAttribute("availabilities", Availability.values());
+			model.addAttribute("vegetablesFamilies", getAllVegetablesFamilies());		
+			return toVegetablesAdd;
 		} else {
 			vegetablesService.save(vegetables);		
 			redirectAttributes.addFlashAttribute("success", "vegetables");	
@@ -137,6 +151,9 @@ public class VegetablesController {
 		if("back".equals(action)) {
 			return toVegetablesFamilyOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){	
+			model.addAttribute("vegetables", vegetables);		
+			model.addAttribute("availabilities", Availability.values());
+			model.addAttribute("vegetablesFamilies", getAllVegetablesFamilies());		
 			request.setAttribute("exception", "exception.wrong.input");
 			return "vegetablesAdd";
 		} else {

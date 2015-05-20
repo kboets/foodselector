@@ -12,8 +12,8 @@ public class StringToFishOriginConverter implements Converter<String, FishOrigin
 	private IFishOriginService fishOriginService;
 	
 	@Override
-	public FishOrigin convert(String name) {
-		return fishOriginService.findByName(name);		
+	public FishOrigin convert(String id) {
+		return fishOriginService.getById(new Long(id));		
 	}
 
 	

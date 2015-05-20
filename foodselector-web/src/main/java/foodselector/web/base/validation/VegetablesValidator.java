@@ -16,6 +16,8 @@ public class VegetablesValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		ValidationUtils.rejectIfEmpty(errors, "name", "no.name");
+		ValidationUtils.rejectIfEmpty(errors, "availability", "vegetables.no.availabiltiy");
+		ValidationUtils.rejectIfEmpty(errors, "vegetablesFamily", "vegetables.no.vegetablesFamily");
 	}
 
 }

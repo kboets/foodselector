@@ -28,7 +28,8 @@
 	    	 <div class="form-group">
 	    	 	<form:label path="fishOrigin" cssClass="control-label col-sm-3"><spring:message code="fishOrigin_title"/></form:label>
 	    	 	<div class="col-sm-7">
-	    	 		<form:select path="fishOrigin" >	    
+	    	 		<form:select path="fishOrigin" >
+	    	 			<form:option  value="${fish.fishOrigin.id}" ><c:out value="${fish.fishOrigin.name}"/></form:option>	    
 	    	 			<form:options items="${fishOrigins}" itemValue="id" itemLabel="name"/>	    	 			
 	    	 		</form:select>
 	    	 	</div>
