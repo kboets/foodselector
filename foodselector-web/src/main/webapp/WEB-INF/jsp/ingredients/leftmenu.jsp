@@ -9,7 +9,8 @@
 		<li><a href="<c:url value='/meatOverview' />"><spring:message code="leftMenu_ingredients_Meat" /></a></li>
 		<li><a href="<c:url value='/fishOriginOverview' />"><spring:message code="leftMenu_ingredients_Fish" /></a></li>
 		<li><a href="<c:url value='/vegetablesFamilyOverview' />"><spring:message code="leftMenu_ingredients_Vegetables" /></a></li>
-		<li><a href="<c:url value='/pastaOverview' />"><spring:message code="leftMenu_ingredients_Pasta" /></a></li>		
+		<li><a href="<c:url value='/pastaOverview' />"><spring:message code="leftMenu_ingredients_Pasta" /></a></li>	
+		<li><a href="<c:url value='/spicesOverview' />"><spring:message code="leftMenu_ingredients_Spices" /></a></li>
 	</ul>
 	
 </div>

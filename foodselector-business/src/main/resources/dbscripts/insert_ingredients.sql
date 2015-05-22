@@ -42,6 +42,7 @@ insert into VEGETABLES_FAMILY(name, info) values('KOOLSOORTEN',' Koolsoorten bev
 insert into VEGETABLES_FAMILY(name, info) values('PEULVRUCHTEN','Peulvruchten zijn echter ook heel gezond. Ze zijn rijk aan koolhydraten, eiwitten, B- vitamines en mineralen, zoals ijzer, calcium, molybdeen en fosfor. Ze zijn vezelrijk en caloriearm wat inhoud dat je door het eten van peulvruchten wel een verzadigd, vol gevoel krijgt, maar niet veel calorieën tot je neemt');
 insert into VEGETABLES_FAMILY(name, info) values('WORTEL- EN KNOLGEWASSEN','Wortel- en knolgewassen zijn de delen van een plant waarvan de wortel is uitgegroeid tot een eetbare groente');
 insert into VEGETABLES_FAMILY(name, info) values('STENGELGROENTEN','Stengelgroenten zijn de uitlopers van de wortel van een plant, namelijk de delen die boven de grond uitgroeien. Het gaat bij deze groep vooral om de vlezige bladstelen');
+insert into VEGETABLES_FAMILY(name, info) values('VRUCHTGROENTEN','Vruchtgroenten zijn groenten die ontstaan zijn uit planten waarvan de bloemen al dan niet bevrucht werden.');
 
 /** vegetables */
 insert into VEGETABLES (name, info, vegetables_vf_id) values('Witloof','Klaarmaken met bruine suiker', 1);
@@ -57,6 +58,11 @@ insert into VEGETABLES (name, info, vegetables_vf_id) values('Schorseneren','', 
 insert into VEGETABLES (name, info, vegetables_vf_id) values('Asperges','Asperges zijn een bijzonder voedzame groente. Er zit een groot aantal verschillende vitaminen in. ', 5);
 insert into VEGETABLES (name, info, vegetables_vf_id) values('Ajuin','Uien zitten vol met vitamine C. Verder zit er redelijk wat B6 en B11 in. ', 5);
 insert into VEGETABLES (name, info, vegetables_vf_id) values('Prei','Het vermindert cholesterol en belemmert schadelijke enzymen in de lever. Bovendien verschaft het 52% ADH vitamine K en meer dan 29% ADH vitamine A. Dan bevat prei ook nog foliumzuur, niacine, riboflavine, magnesium en thiamine.', 5);
+insert into VEGETABLES (name, info, vegetables_vf_id) values('Tomaat','De tomaat bestaat in verschillende kalibers, smaken en kleuren. De tomaat is rijk aan vitamine C, maar die zit vooral rond de pitjes.', 6);
+insert into VEGETABLES (name, info, vegetables_vf_id) values('Komkommers','Komkommers eet je meestal rauw, maar ze kunnen ook opgewarmd, gestoofd of gestoomd worden. ', 6);
+insert into VEGETABLES (name, info, vegetables_vf_id) values('Aubergines','Deze vruchtgroente moet niet geschild worden, enkel de steel moet eraf gesneden worden. Rauw zijn ze niet eetbaar, maar verder kan alles: stomen, stoven, bakken, grillen...', 6);
+insert into VEGETABLES (name, info, vegetables_vf_id) values('Paprika','Paprika s bevatten veel vitamine C en kunnen rauw, gestoofd of gegrild gegeten worden.', 6);
+insert into VEGETABLES (name, info, vegetables_vf_id) values('Courgettes','Courgettes bestaan in veel verschillende soorten: zowel de kleur als het gewicht kunnen verschillen. Een gele courgette heeft bijna dezelfde smaak als een groen, maar hoe kleiner de vrucht hoe lekkerder', 6);
 
 /** pasta */
 insert into PASTA(name, info) values('SPAGHETTI', 'Een ronde pastasliert die verschillende diktes kan hebben');
@@ -64,5 +70,18 @@ insert into PASTA(name, info) values('TAGLIATELLI', 'Tagliatelle zijn pastalinte
 insert into PASTA(name, info) values('LASAGNE' ,'Lasagnebladeren zijn dunne deegvellen van circa 10 cm op 15 cm');
 insert into PASTA(name, info) values('MACARONI' ,'Het zijn holle deegbuizen zijn een typische Napolitaanse specialiteit');
 insert into PASTA(name, info) values('PENNE' ,'Penne’s zijn schuin afgesneden langwerpige buisjes');
+
+/** spices */
+insert into SPICES (name, info, usage) values('BASILICUM', 'Basilicum, ook wel koningskruid genoemd, is een populair en smakelijk kruid dat tal van gerechten opfrist. Vooral in de lente- en zomermaanden zal je veel plezier beleven aan dit kruid. De basilicumblaadjes worden vers gebruikt. Het kruid is goed te kweken in potten en bakken. Het vraagt een warme en zonnige standplaats.', 'Royaal gebruiken, niet mee laten koken');
+insert into SPICES_VEGETABLES (SPICES_ID, VEGETABLES_ID) values(1,14);
+insert into SPICES_VEGETABLES (SPICES_ID, VEGETABLES_ID) values(1,15);
+insert into SPICES_VEGETABLES (SPICES_ID, VEGETABLES_ID) values(1,16);
+insert into SPICES (name, info, usage) values('BISLOOK', 'Bieslook smaakt in nagenoeg elk gerecht. Bieslook kan men invriezen, dit evenwel fijngesneden, gedroogd verliest het snel zijn aroma.', 'Royaal gebruiken, niet mee laten koken');
+insert into SPICES_VEGETABLES (SPICES_ID, VEGETABLES_ID) values(2,14);
+insert into SPICES_VEGETABLES (SPICES_ID, VEGETABLES_ID) values(2,15);
+insert into SPICES (name, info, usage) values('OREGANO', 'Oregano wordt overvloedig gebruikt in de Griekse en Italiaanse keuken, maar ook bij ons is het een smaakmaker.', 'Weinig gebruiken, gedroogde meekoken, verse niet');
+insert into SPICES (name, info, usage) values('PETERSELIE', 'Peterselie is een populair kruid over de hele wereld. Peterselie is ideaal bij rauwe groenten, salades of vlees', 'Royaal gebruiken, stelen wel meekoken, blaadjes niet');
+insert into SPICES_VEGETABLES (SPICES_ID, VEGETABLES_ID) values(4,9);
+insert into SPICES_VEGETABLES (SPICES_ID, VEGETABLES_ID) values(4,3);
 
 

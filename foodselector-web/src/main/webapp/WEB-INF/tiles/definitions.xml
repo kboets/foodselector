@@ -73,5 +73,9 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/pasta/pasta_add.jsp" />	
 	</definition>
 	
+	<definition name="toSpicesOverview" extends="mainLayout">
+		<put-attribute name="leftmenu" value="/WEB-INF/jsp/ingredients/leftmenu.jsp" />  
+		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/spices/spices_overview.jsp" />	
+	</definition>
 	
 </tiles-definitions>
