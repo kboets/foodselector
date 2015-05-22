@@ -24,15 +24,7 @@
 <script type="text/javascript"	src="<c:url value='/resources/js/foodselector.js'/>"></script>
 <!-- <script type="text/javascript"	src="<c:url value='/resources/js/progressbar.js'/>"></script> -->
 
-<!-- USE WEBJARS 
-<spring:url value="/webjars/jquery/2.0.3/jquery.js" var="jQuery"/>
-<script src="${jQuery}"></script>
-<spring:url value="/webjars/jquery-ui/1.10.3/ui/jquery.ui.core.js" var="jQueryUiCore"/>
-<script src="${jQueryUiCore}"></script>
-<spring:url value="/webjars/jquery-ui/1.10.3/ui/jquery.ui.progressbar.js" var="jQueryUiProgressBar"/>
-<script src="${jQueryUiProgressBar}"></script>
-<spring:url value="/webjars/jquery-ui/1.10.3/themes/base/jquery-ui.css" var="jQueryUiCss"/>
-    <link href="${jQueryUiCss}" rel="stylesheet"></link>-->
+
 
 <title>Foodselector</title>
 </head>
