@@ -44,18 +44,7 @@
 								</c:forEach>
        						</div>
        						<div class="col-sm-4">
-       							<c:if test="${fishOrigin.fishType eq 'OILY'}">
-									<spring:message code="fish_type_fat" />
-								</c:if> 
-								<c:if test="${fishOrigin.fishType eq 'HALF_OILY'}">
-									<spring:message code="fish_type_half" />
-								</c:if>
-								<c:if test="${fishOrigin.fishType eq 'WHITE'}">
-									<spring:message code="fish_type_white" />
-								</c:if>
-								<c:if test="${fishOrigin.fishType eq 'SEAFOOD'}">
-									<spring:message code="fish_type_seafood" />
-								</c:if>
+       							<spring:message code="${fishOrigin.fishType.code}"/>       							
        						</div>
        					</div>       				
        				</c:when>
@@ -72,18 +61,7 @@
 								</c:forEach>
 							</div>
 							<div class="col-sm-4">
-       							<c:if test="${fishOrigin.fishType eq 'OILY'}">
-									<spring:message code="fish_type_fat" />
-								</c:if> 
-								<c:if test="${fishOrigin.fishType eq 'HALF_OILY'}">
-									<spring:message code="fish_type_half" />
-								</c:if>
-								<c:if test="${fishOrigin.fishType eq 'WHITE'}">
-									<spring:message code="fish_type_white" />
-								</c:if>
-								<c:if test="${fishOrigin.fishType eq 'SEAFOOD'}">
-									<spring:message code="fish_type_seafood" />
-								</c:if>
+       							<spring:message code="${fishOrigin.fishType.code}"/>
        						</div>	
        					</div>
        				</c:otherwise>
