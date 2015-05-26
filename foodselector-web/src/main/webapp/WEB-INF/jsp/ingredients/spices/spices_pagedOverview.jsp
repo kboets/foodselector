@@ -28,7 +28,8 @@
 		<c:url var="prevUrl" value="/spicesPageOverview/${currentIndex - 1}" />
 		<c:url var="nextUrl" value="/spicesPageOverview/${currentIndex + 1}" />
 	
-		<div class="pagination">			
+		<div class="pagination">
+						
 			<c:choose>
             	<c:when test="${currentIndex == 1}">
                		<li class="disabled"><a href="#">&lt;&lt;</a></li>
@@ -44,11 +45,11 @@
             		<c:url var="pageUrl" value="/spicesPageOverview/${i}" />
             		<c:choose>
                 		<c:when test="${i == currentIndex}">
-                    		<li class="active"><a href="${pageUrl}"><c:out value="${i}" /></a></li>
+                    		<li class="active"><a href="${pageUrl}"><c:out value="${i}" /></a></li>                    		
                 		</c:when>
                 		<c:otherwise>
 	                    	<li><a href="${pageUrl}"><c:out value="${i}" /></a></li>
-	                	</c:otherwise>
+	                	</c:otherwise>	                	
     	        	</c:choose>
         	</c:forEach>
         	<c:choose>
@@ -60,7 +61,8 @@
                 <li><a href="${nextUrl}">&gt;</a></li>
                 <li><a href="${lastUrl}">&gt;&gt;</a></li>
             </c:otherwise>
-        </c:choose>		
+        	</c:choose>
+
 		</div>
 		
 		<c:forEach items="${spicesListPerPage.content}" var="spices" >
@@ -90,7 +92,7 @@
 			</div>		
 			<div class="row" style="margin-top: 10px">
 				<div class="col-sm-2"><spring:message code="spices_extra_info" /></div>
-				<div class="col-sm-4">
+				<div class="col-sm-5">
 					<c:out value="${spices.info}" />
 				</div>
 			</div>				
