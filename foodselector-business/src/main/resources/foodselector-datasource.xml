@@ -10,11 +10,12 @@
 http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
 http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
-http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd" >
 
 	<context:annotation-config />	
 	<context:component-scan base-package="foodselector.service" />  
 	
+		
 	<jpa:repositories base-package="foodselector.repository" />	
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -31,19 +32,39 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 		</property>				
 		<property name="jpaProperties">
          <props>
-            <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
-            <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
-            <prop key="hibernate.show_sql">true</prop>
-            <prop key="hibernate.format_sql">true</prop>            
+            <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+            <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+            <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+            <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>            
          </props>
       </property>	
   	</bean>
 	
-	<jdbc:embedded-database id="dataSource" type="H2" />	
+	
+	
+	<beans profile="development">
+		<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	    <property name="locations">
+        	    <list>
+            	    <value>classpath:db.properties</value>
+            	</list>
+        	</property>
+    	</bean>
+    	
+    	<jdbc:embedded-database id="dataSource" type="H2" />	
 		
-	<jdbc:initialize-database>
-		<jdbc:script location="classpath:dbscripts/insert_ingredients.sql"/>
-	</jdbc:initialize-database>
+		<jdbc:initialize-database>
+			<jdbc:script location="classpath:dbscripts/insert_ingredients.sql"/>
+		</jdbc:initialize-database>	
+	</beans>
 	
-	
+	<beans profile="production">
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:db_production.properties</value>
+            </list>
+        </property>
+    </bean>
+	</beans>
 </beans>
