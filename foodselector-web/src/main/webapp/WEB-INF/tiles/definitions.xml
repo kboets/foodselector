@@ -22,65 +22,6 @@
 		<put-attribute name="leftmenu" value="/WEB-INF/jsp/ingredients/leftmenu.jsp" /> 
 		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/overview.jsp" />
 	</definition>
-	<!-- MEAT -->
-	<definition name="toMeatOverview" extends="mainLayout">
-		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
-		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/meat/meat_overview.jsp" />
-	</definition>
 	
-	<definition name="toMeatAdd" extends="mainLayout">
-		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
-		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/meat/meat_add.jsp" />
-	</definition>
-	<!-- FISH -->
-	<definition name="toFishOriginOverview" extends="mainLayout">
-		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
-		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/fish/fishOrigin_overview.jsp" />
-	</definition>
-	
-	<definition name="toFishOriginAdd" extends="mainLayout">
-		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
-		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/fish/fishOrigin_add.jsp" />
-	</definition>
-	
-	<definition name="toFishAdd" extends="mainLayout">
-		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
-		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/fish/fish_add.jsp" />
-	</definition>
-	<!-- VEGETABLES -->
-	<definition name="toVegetablesFamilyOverview" extends="mainLayout">
-		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
-		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/vegetables/vegetablesFamily_overview.jsp" />	
-	</definition>
-	
-	<definition name="toVegetablesFamilyAdd" extends="mainLayout">
-		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
-		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/vegetables/vegetablesFamily_add.jsp" />	
-	</definition>
-	
-	<definition name="toVegetablesAdd" extends="mainLayout">
-		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
-		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/vegetables/vegetables_add.jsp" />	
-	</definition>
-	
-	<definition name="toPastaOverview" extends="mainLayout">
-		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
-		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/pasta/pasta_overview.jsp" />	
-	</definition>
-	
-	<definition name="toPastaAdd" extends="mainLayout">
-		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" /> 
-		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/pasta/pasta_add.jsp" />	
-	</definition>
-	
-	<definition name="toSpicesOverview" extends="mainLayout">
-		<put-attribute name="leftmenu" value="/WEB-INF/jsp/ingredients/leftmenu.jsp" />  
-		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/spices/spices_overview.jsp" />	
-	</definition>
-	
-	<definition name="toSpicesPageOverview" extends="mainLayout">
-		<put-attribute name="leftmenu" value="/WEB-INF/jsp/ingredients/leftmenu.jsp" />  
-		<put-attribute name="body" value="/WEB-INF/jsp/ingredients/spices/spices_pagedOverview.jsp" />	
-	</definition>
 	
 </tiles-definitions>

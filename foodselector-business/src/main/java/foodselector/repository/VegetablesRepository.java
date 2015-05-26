@@ -7,6 +7,6 @@ import foodselector.domain.Vegetables;
 
 public interface VegetablesRepository extends CrudRepository<Vegetables, Long> {
 
-	
+	Vegetables findByName(String name);
 
 }

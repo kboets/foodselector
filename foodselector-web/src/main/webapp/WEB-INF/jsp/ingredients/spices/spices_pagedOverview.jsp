@@ -95,7 +95,12 @@
 				<div class="col-sm-5">
 					<c:out value="${spices.info}" />
 				</div>
-			</div>				
+			</div>		
+			<div class="row">
+				<div class="col-sm-2">
+					<a href="<c:url value='/spicesUpdate/${spices.id}' />">Wijzig</a>
+				</div>
+			</div>		
 		</c:forEach>
 	</c:if>
 	

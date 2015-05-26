@@ -17,6 +17,8 @@ import foodselector.domain.enums.Availability;
 @Table(name="VEGETABLES")
 public class Vegetables extends AbstractEntity {
 	
+	
+
 	private static final long serialVersionUID = -6955641106993033485L;
 
 	@Id
@@ -77,6 +79,35 @@ public class Vegetables extends AbstractEntity {
 
 	public void setAvailability(Availability availability) {
 		this.availability = availability;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((availability == null) ? 0 : availability.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vegetables other = (Vegetables) obj;
+		if (availability != other.availability)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
 	}
 	
 	

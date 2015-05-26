@@ -19,7 +19,7 @@
 				<bean class="foodselector.web.base.converter.StringToFishOriginConverter" />
 				<bean class="foodselector.web.base.converter.IDToFishOriginConverter" />		
 				<bean class="foodselector.web.base.converter.IdToVegetablesConverter" />
-				<bean class="foodselector.web.base.converter.IdToVegetablesFamilyConverter" />
+				<bean class="foodselector.web.base.converter.IdToVegetablesFamilyConverter" />				
 			</set>
 		</property>		
 	</bean>
@@ -51,6 +51,7 @@
         <property name="definitions">
             <list>
                 <value>/WEB-INF/tiles/definitions.xml</value>
+                <value>/WEB-INF/tiles/definitions_ingredients.xml</value>
             </list>
         </property>
     </bean>

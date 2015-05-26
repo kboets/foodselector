@@ -17,6 +17,11 @@ public class VegetablesService extends AbstractService<Vegetables, Long> impleme
 		this.vegetablesRepository = vegetablesRepository;
 		super.setRepository(vegetablesRepository);
 	}
+
+	@Override
+	public Vegetables findByName(String name) {
+		return vegetablesRepository.findByName(name);		
+	}
 	
 
 }
