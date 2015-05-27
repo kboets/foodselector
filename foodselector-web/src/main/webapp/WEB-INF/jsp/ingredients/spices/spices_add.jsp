@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
 <%@ include file="../../taglib_includes.jsp"%>
 
+
+
+
 <div class="right_body">
 	<h2>
 		<spring:message code="spices_add_title" />
@@ -9,6 +12,14 @@
 	<div class="clr"></div>	
 	
 	<form:form id="addSpices_form" method="POST" modelAttribute="spices" cssClass="form-horizontal">
+		<c:choose>
+			<c:when test="${fn:length(vegetablesList) gt 0}">
+				<c:set var="vegetableLength"  value="${fn:length(vegetablesList)}"/>
+			</c:when>
+			<c:otherwise>
+				<c:set var="vegetableLength"  value="${fn:length(spices.favoriteVegetables)}"/>
+			</c:otherwise>
+		</c:choose>
 		<input name="action" id="action" type="hidden" />		
 		<input name="_method" type="hidden" value="PUT" />
 		<form:hidden path="id"/>  
@@ -38,18 +49,19 @@
 	    	 <div class="form-group">
 	    	 	<form:label path="favoriteVegetables" cssClass="control-label col-sm-4" />	    	 		
 	    	 		<div class="col-sm-3">							 			    	 		
-	    	 			<select id="all_vegetables_list" multiple="multiple" size="${fn:length(vegetablesList)}px" style="width: 150px">
+	    	 			<select id="all_vegetables_list" multiple="multiple" size="${vegetableLength}px" style="width: 150px">
 	    	 				<c:forEach items="${vegetablesList}" var="vegetables">
 	    	 					<option value="${vegetables.id}"><c:out value="${vegetables.name}" /></option>
 	    	 				</c:forEach>
 	    	 			</select>	    	 		
 	    	 		</div>	    	 		    	 		
 	    	 		<div class="col-sm-1 pagination" align="center">	    	 			
-	    	 				<li id="one_right"><a href="#">&gt;</a></li>	    	 				
-	    	 				<li id="one_left"><a href="#" >&lt;</a></li>	    	 				    	 			
+	    	 				<li id="one_right"><a href="#">&gt;</a></li>	    	 					    	 				
+	    	 				<li id="one_left"><a href="#" >&lt;</a></li>
+	    	 				<li id="all_left"><a href="#" >&lt;&lt;</a></li>	    	 				    	 			
 	    	 		</div>
 	    	 		<div class="col-sm-3">							 			    	 		
-	    	 			<form:select id="preferred_vegetables" path="favoriteVegetables" multiple="true" size="${fn:length(vegetablesList)}px" style="width: 150px">
+	    	 			<form:select id="preferred_vegetables" path="favoriteVegetables" multiple="true" size="${vegetableLength}px" style="width: 150px">
 	    	 				<form:options items="${spices.favoriteVegetables}" itemLabel="name" itemValue="id"></form:options>
 	    	 			</form:select>	    	 		
 	    	 		</div> 		
@@ -83,20 +95,27 @@ $('#spices_save').click(function(){
 	$('#addSpices_form').submit();
 });  
 
-$('#one_right').click(function(){	
-	return !$('#all_vegetables_list option:selected').remove().appendTo('#preferred_vegetables');  
+$('#one_right').click(function(){
+	$('#all_vegetables_list option:selected').clone().attr('id', 'name').appendTo('#preferred_vegetables');
+	$('#preferred_vegetables option').prop('selected', true);
+	return !$('#all_vegetables_list option:selected').remove();	  
 });
 
 $('#all_right').click(function(){	
-	return !$('#all_vegetables_list').remove().appendTo('#preferred_vegetables');  
+	$('#all_vegetables_list option').clone().attr('id', 'name').appendTo('#preferred_vegetables');
+	$('#preferred_vegetables option').prop('selected', true);
+	return !$('#all_vegetables_list option').remove();  
 });
 
 $('#one_left').click(function(){	
-	return !$('#preferred_vegetables option:selected').remove().appendTo('#all_vegetables_list');  
+	$('#preferred_vegetables option:selected').clone().prop('selected', false).attr('id', 'name').appendTo('#all_vegetables_list');	
+	$('#preferred_vegetables option:selected').remove();
+	$('#preferred_vegetables option').prop('selected', true);
 });
 
 $('#all_left').click(function(){	
-	return !$('#preferred_vegetables').remove().appendTo('#all_vegetables_list');  
+	$('#preferred_vegetables option').clone().prop('selected', false).attr('id', 'name').appendTo('#all_vegetables_list');	
+	return !$('#preferred_vegetables option').remove();  
 });
 
 
