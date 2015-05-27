@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,7 @@ import foodselector.domain.Spices;
 import foodselector.domain.Vegetables;
 import foodselector.service.ISpicesService;
 import foodselector.service.IVegetablesService;
+import foodselector.web.base.validation.SpicesValidator;
 
 @Controller
 public class SpicesController {
@@ -38,6 +41,8 @@ public class SpicesController {
 	private ISpicesService spicesService;
 	@Autowired
 	private IVegetablesService vegetablesService;
+	@Autowired
+	private SpicesValidator validator;
 	
 	@RequestMapping(value = "/spicesOverview", method = RequestMethod.GET)
 	public String getSpicesOverview(Model model) {		
@@ -75,10 +80,20 @@ public class SpicesController {
 		return toSpicesUpdate;
 	}
 	
+	@RequestMapping(value="/spicesAdd")
+	public String getAddSpices(Model model) {
+		Spices spices = new Spices();
+		model.addAttribute("spices", spices);						
+		model.addAttribute("vegetablesList", getAllVegetables());
+		return toSpicesUpdate;
+	}	
+	
+	
 	@RequestMapping(value = "/spicesUpdate/{id}", method = {RequestMethod.POST, RequestMethod.PUT})
-	public String updateSpices(HttpServletRequest request, @Valid @ModelAttribute("spices") Spices spices, 
+	public String updateSpices(HttpServletRequest request, @ModelAttribute("spices") Spices spices, 
 			@PathVariable("id") String id, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
 		String action = request.getParameter("action");
+		validator.validate(spices, result);
 		if("back".equals(action)) {
 			return toSpicesPageOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){	
@@ -95,6 +110,26 @@ public class SpicesController {
 		} else {			
 			spicesService.save(spices);		
 			redirectAttributes.addFlashAttribute("success", "spicesUpdate");	
+		}
+		
+		return toSpicesPageOverviewRedirect;
+	}
+	
+	@RequestMapping(value = "/spicesAdd", method = {RequestMethod.POST, RequestMethod.PUT})
+	public String addSpices(HttpServletRequest request, @ModelAttribute("spices") Spices spices, 
+			BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+		String action = request.getParameter("action");
+		validator.validate(spices, result);
+		if("back".equals(action)) {
+			return toSpicesPageOverviewRedirect;
+		} else if(StringUtils.isEmpty(action) && result.hasErrors()){	
+			model.addAttribute("spices", spices);		
+			model.addAttribute("vegetablesList", getAllVegetables());								
+			request.setAttribute("exception", "exception.wrong.input");
+			return toSpicesUpdate;
+		} else {			
+			spicesService.save(spices);		
+			redirectAttributes.addFlashAttribute("success", "spicesAdd");	
 		}
 		
 		return toSpicesPageOverviewRedirect;

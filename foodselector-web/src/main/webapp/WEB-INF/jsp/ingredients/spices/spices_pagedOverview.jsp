@@ -107,10 +107,11 @@
 	<div class="buttons" style="margin-top: 10px">
 		<button class="btn bold" id="spices_add"><spring:message code="spices_add_button" /></button>				
 	</div>
-		
-		
-		
-		
-	
 
 </div>
+
+<script>
+$("#spices_add").click(function() {
+	window.location="/foodselector/spicesAdd";
+});
+</script>

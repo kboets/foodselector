@@ -13,11 +13,11 @@
 	
 	<form:form id="addSpices_form" method="POST" modelAttribute="spices" cssClass="form-horizontal">
 		<c:choose>
-			<c:when test="${fn:length(vegetablesList) gt 0}">
+			<c:when test="${fn:length(vegetablesList) lt 15}">
 				<c:set var="vegetableLength"  value="${fn:length(vegetablesList)}"/>
 			</c:when>
 			<c:otherwise>
-				<c:set var="vegetableLength"  value="${fn:length(spices.favoriteVegetables)}"/>
+				<c:set var="vegetableLength"  value="15"/>
 			</c:otherwise>
 		</c:choose>
 		<input name="action" id="action" type="hidden" />		

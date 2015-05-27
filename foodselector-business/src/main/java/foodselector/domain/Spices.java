@@ -24,6 +24,7 @@ public class Spices extends AbstractEntity {
 	@Column(name="SPICES_ID")
 	private Long id;	
 	
+	
 	@Column(name="NAME", nullable=false)
 	private String name;
 	
