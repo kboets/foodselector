@@ -62,13 +62,13 @@
                 <li><a href="${lastUrl}">&gt;&gt;</a></li>
             </c:otherwise>
         	</c:choose>
-
 		</div>
 		
 		<c:forEach items="${spicesListPerPage.content}" var="spices" >
 			<div class="row">
 				<div class="col-sm-8" style="background-color:#b0c4de; ">
-					<strong><c:out value="${spices.name}"  /></strong>					
+					<strong style="margin-right: 50px"><c:out value="${spices.name}"  /></strong>
+					<a href="<c:url value='/spicesUpdate/${spices.id}' />"><span class="glyphicon glyphicon-edit" style="color: #5f5f5f;"></span></a>					
 				</div>
 			</div>	
 			<div class="row" style="margin-top: 10px">	
@@ -95,12 +95,7 @@
 				<div class="col-sm-5">
 					<c:out value="${spices.info}" />
 				</div>
-			</div>		
-			<div class="row">
-				<div class="col-sm-2">
-					<a href="<c:url value='/spicesUpdate/${spices.id}' />">Wijzig</a>
-				</div>
-			</div>		
+			</div>			
 		</c:forEach>
 	</c:if>
 	

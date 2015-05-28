@@ -1,6 +1,5 @@
 package foodselector.domain.enums;
 
-import java.util.List;
 
 public enum Availability {
 
