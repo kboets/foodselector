@@ -13,8 +13,8 @@
       <div class="menu">
         <ul>
           <li><a href="<c:url value='/' />"><span>Home</span></a></li>
-          <li><a href="<c:url value='/ingredients' />"><span><spring:message code="header_link_ingredients" /></span></a></li>
-          <li><a href="about.html"><span>About Us</span></a></li>
+          <li><a href="<c:url value='/dishflow' />"><span><spring:message code="header_link_dish" /></span></a></li>
+          <li><a href="<c:url value='/ingredients' />"><span><spring:message code="header_link_ingredients" /></span></a></li>          
           <li><a href="contact.html"><span>Contact Us</span></a></li>
         </ul>
       </div>

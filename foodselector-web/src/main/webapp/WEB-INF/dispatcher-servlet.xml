@@ -24,14 +24,8 @@
 		</property>		
 	</bean>
 
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/resources/**" location="/resources/" />	
 		 
-	 <!-- <mvc:interceptors>	 	
-	 	<bean id="foodselectorInterceptor" class="foodselector.web.base.interceptor.FoodSelectorInterceptor">
-    		<constructor-arg name="foodSelectorUrl"  value="http://localhost:8080/foodselector" />
-    	</bean>
-	 </mvc:interceptors> -->
-
 	 <bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames">
@@ -42,9 +36,17 @@
 		</property>		
 	</bean>
 	
-	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
-        	<property name="order" value="1"/>
-    </bean>   
+	<!-- 
+	<bean id="tilesViewResolver"
+		class="org.springframework.js.ajax.AjaxUrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.webflow.mvc.view.FlowAjaxTilesView" />
+		<property name="order" value="1"/>	
+	</bean> -->
+	
+	 <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+        <property name="order" value="1"/>
+    </bean>    
     
     <bean id="tilesConfigurer"
         class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">

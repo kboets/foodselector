@@ -16,6 +16,7 @@
 		<junit.version>4.11</junit.version>
 		<slf4j.version>1.7.5</slf4j.version>
 		<spring.version>4.1.2.RELEASE</spring.version>
+		<spring.webflow.version>2.4.1.RELEASE</spring.webflow.version>
 		<aspectj.version>1.7.2</aspectj.version>
 		<taglib.version>1.1.2</taglib.version>
 		<servlet.version>3.0.1</servlet.version>
@@ -135,11 +136,15 @@
 				<artifactId>spring-jdbc</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
-
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-jpa</artifactId>
 				<version>1.7.2.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.webflow</groupId>
+				<artifactId>spring-webflow</artifactId>
+				<version>${spring.webflow.version}</version>
 			</dependency>
 
 
