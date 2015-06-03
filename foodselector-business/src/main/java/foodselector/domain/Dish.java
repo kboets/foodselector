@@ -22,4 +22,5 @@ public class Dish extends AbstractEntity {
 	@Column(name="NAME", nullable=false, unique=true)
 	private String name;
 	
+	
 }

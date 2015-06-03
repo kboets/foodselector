@@ -84,4 +84,8 @@ insert into SPICES (name, info, usage) values('PETERSELIE', 'Peterselie is een p
 insert into SPICES_VEGETABLES (SPICES_ID, VEGETABLES_ID) values(4,9);
 insert into SPICES_VEGETABLES (SPICES_ID, VEGETABLES_ID) values(4,3);
 
-
+/** potato */
+insert into POTATO(POTATO_TYPE) values('POTATO');
+insert into POTATO(POTATO_TYPE) values('FRENCH_FRIES');
+insert into POTATO(POTATO_TYPE) values('CROQUETTE');
+insert into POTATO(POTATO_TYPE) values('ROSTI');

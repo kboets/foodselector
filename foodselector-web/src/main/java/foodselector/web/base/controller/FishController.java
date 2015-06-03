@@ -59,7 +59,7 @@ public class FishController {
 	
 	@RequestMapping(value = "/fishOriginOverview", method = RequestMethod.GET)
 	public String getFishOriginOverview(Model model) {
-		model.addAttribute("fishOriginOverview", getAllFishOrigins());
+		model.addAttribute("fishOriginOverview", fishOriginService.getAll());
 		
 		return toFishOriginOverview;
 	}
@@ -119,7 +119,7 @@ public class FishController {
 	public String addFish(Model model) {
 		Fish fish = new Fish();
 		model.addAttribute("fish", fish);
-		model.addAttribute("fishOrigins", getAllFishOrigins());
+		model.addAttribute("fishOrigins", fishOriginService.getAll());
 		return toFishAdd; 
 	}
 	
@@ -127,7 +127,7 @@ public class FishController {
 	public String updateFish(Model model, @PathVariable("id") String id) {
 		Fish fish = fishService.getById(new Long(id));		
 		model.addAttribute("fish", fish);
-		model.addAttribute("fishOrigins", getAllFishOrigins());
+		model.addAttribute("fishOrigins", fishOriginService.getAll());
 		return toFishAdd; 
 	}
 	
@@ -138,7 +138,7 @@ public class FishController {
 		if("back".equals(action)){
 			return toFishOriginOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){			
-			model.addAttribute("fishOrigins", getAllFishOrigins());			
+			model.addAttribute("fishOrigins", fishOriginService.getAll());			
 			request.setAttribute("exception", "exception.wrong.input");
 			return toFishAdd;
 		} else {
@@ -155,7 +155,7 @@ public class FishController {
 		if("back".equals(action)){
 			return toFishOriginOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){			
-			model.addAttribute("fishOrigins", getAllFishOrigins());			
+			model.addAttribute("fishOrigins", fishOriginService.getAll());			
 			request.setAttribute("exception", "exception.wrong.input");
 			return toFishAdd;
 		} else {
@@ -164,12 +164,6 @@ public class FishController {
 		}
 		return toFishOriginOverviewRedirect;	
 		
-	}
-	
-	
-	private List<FishOrigin> getAllFishOrigins() {
-		Iterable<FishOrigin> result = fishOriginService.getAll();
-		return Lists.newArrayList(result);
-	}
+	}	
 	
 }

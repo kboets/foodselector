@@ -49,14 +49,14 @@ public class MeatController {
 	
 	@RequestMapping(value = "/meatOverview", method = RequestMethod.GET)
 	public String getMeatOverview(Model model) {		
-		model.addAttribute("meatOverview", getAllMeatOrigins());
+		model.addAttribute("meatOverview", meatOriginService.getAll());
 		return toMeatOverview;
 	}
 
 	@RequestMapping(value = "/meatAdd", method = RequestMethod.GET)
 	public String getAddMeat(HttpServletRequest request,
 			HttpServletResponse response, Model model) {		
-		model.addAttribute("meatOverview", getAllMeatOrigins());
+		model.addAttribute("meatOverview", meatOriginService.getAll());
 		Meat meat = new Meat();
 		model.addAttribute("meat", meat);
 		return toMeatAdd;
@@ -66,7 +66,7 @@ public class MeatController {
 	public String getUpdateMeat(HttpServletRequest request,
 			HttpServletResponse response, Model model, @PathVariable("id") String id) {
 		Meat meat = meatService.getById(new Long(id));
-		model.addAttribute("meatOverview", getAllMeatOrigins());
+		model.addAttribute("meatOverview", meatOriginService.getAll());
 		model.addAttribute("meat", meat);
 		return toMeatAdd;
 	}
@@ -79,7 +79,7 @@ public class MeatController {
 		if("back".equals(action)){
 			return toMeatOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){	
-			model.addAttribute("meatOverview", getAllMeatOrigins());
+			model.addAttribute("meatOverview", meatOriginService.getAll());
 			request.setAttribute("exception", "exception.wrong.input");
 			return toMeatAdd;
 		} else {
@@ -97,7 +97,7 @@ public class MeatController {
 		if("back".equals(action)){
 			return toMeatOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){	
-			model.addAttribute("meatOverview", getAllMeatOrigins());
+			model.addAttribute("meatOverview", meatOriginService.getAll());
 			request.setAttribute("exception", "exception.wrong.input");
 			return toMeatAdd;
 		} else {	
@@ -110,11 +110,11 @@ public class MeatController {
 	
 	 
 	
-	public List<MeatOrigin> getAllMeatOrigins() {		
-		Iterable<MeatOrigin> iterable = meatOriginService.getAll();
-		return Lists.newArrayList(iterable);
-		
-	}
+//	public List<MeatOrigin> getAllMeatOrigins() {		
+//		Iterable<MeatOrigin> iterable = meatOriginService.getAll();
+//		return Lists.newArrayList(iterable);
+//		
+//	}
 
 
 	

@@ -1,10 +1,13 @@
 package foodselector.service;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.google.common.collect.Lists;
 
 /**
  * Service will handle all CRUD operations for the specific domain object. 
@@ -24,8 +27,9 @@ public abstract class AbstractService <T, U extends Serializable> implements IAb
 	}
 	
 	@Transactional(readOnly=true)
-	public Iterable<T> getAll() {
-		return repository.findAll();
+	public List<T> getAll() {
+		Iterable<T> iterable = repository.findAll();
+		return Lists.newArrayList(iterable);
 	}
 	
 	@Transactional(readOnly=false)

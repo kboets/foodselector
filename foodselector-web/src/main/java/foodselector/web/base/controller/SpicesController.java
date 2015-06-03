@@ -68,7 +68,7 @@ public class SpicesController {
 		Spices spices = spicesService.getById(new Long(id));
 		model.addAttribute("spices", spices);		
 		Set<Vegetables> allVegetables = new HashSet<Vegetables>();		
-		for(Vegetables vegetables : getAllVegetables()) {			
+		for(Vegetables vegetables : vegetablesService.getAll()) {			
 			if(!spices.getFavoriteVegetables().contains(vegetables)) {
 				allVegetables.add(vegetables);
 			} 
@@ -81,7 +81,7 @@ public class SpicesController {
 	public String getAddSpices(Model model) {
 		Spices spices = new Spices();
 		model.addAttribute("spices", spices);						
-		model.addAttribute("vegetablesList", getAllVegetables());
+		model.addAttribute("vegetablesList", vegetablesService.getAll());
 		return toSpicesUpdate;
 	}	
 	
@@ -96,7 +96,7 @@ public class SpicesController {
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){	
 			model.addAttribute("spices", spices);		
 			Set<Vegetables> allVegetables = new HashSet<Vegetables>();		
-			for(Vegetables vegetables : getAllVegetables()) {			
+			for(Vegetables vegetables : vegetablesService.getAll()) {			
 				if(!spices.getFavoriteVegetables().contains(vegetables)) {
 					allVegetables.add(vegetables);
 				} 
@@ -121,7 +121,7 @@ public class SpicesController {
 			return toSpicesPageOverviewRedirect;
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){	
 			model.addAttribute("spices", spices);		
-			model.addAttribute("vegetablesList", getAllVegetables());								
+			model.addAttribute("vegetablesList", vegetablesService.getAll());								
 			request.setAttribute("exception", "exception.wrong.input");
 			return toSpicesUpdate;
 		} else {			
@@ -137,9 +137,9 @@ public class SpicesController {
 		return Lists.newArrayList(iterable); 
 	}
 	
-	private List<Vegetables> getAllVegetables() {
-		Iterable<Vegetables> iterable = vegetablesService.getAll(); 
-		return Lists.newArrayList(iterable);
-	}
+//	private List<Vegetables> getAllVegetables() {
+//		Iterable<Vegetables> iterable = vegetablesService.getAll(); 
+//		return Lists.newArrayList(iterable);
+//	}
 }
 

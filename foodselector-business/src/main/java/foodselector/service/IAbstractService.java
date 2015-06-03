@@ -1,6 +1,7 @@
 package foodselector.service;
 
 import java.io.Serializable;
+import java.util.List;
 /** 
  * AbstractService , used as a base for all services.
  * Included is the complete CRUD, created interface so that each
@@ -16,7 +17,7 @@ public interface IAbstractService <T, U extends Serializable> {
 	 * Retrieves all entities.
 	 * @return
 	 */
-	Iterable<T> getAll();
+	List<T> getAll();
 	/**
 	 * Saves or updates the entity.
 	 * @param entity 

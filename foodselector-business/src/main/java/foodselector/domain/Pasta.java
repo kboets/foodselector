@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="PASTA")
-public class Pasta extends AbstractEntity {
+public class Pasta extends AbstractEntity implements DishAdditive{
 
 	
 	private static final long serialVersionUID = 2437161609943460320L;
@@ -48,6 +48,12 @@ public class Pasta extends AbstractEntity {
 
 	public void setInfo(String info) {
 		this.info = info;
-	} 
+	}
+
+	
+	public String getDescriptionCode() {	
+		return "pasta_description_dish";
+	}
+
 	
 }

@@ -7,7 +7,9 @@
 
 		
 	<view-state id="createDish" model="dish" view="toCreateDish">
-		<!-- <on-entry></on-entry> -->		
+		<on-entry>
+			<evaluate expression="dishController.createDishAdditives()" result="viewScope.dishTypes" />
+		</on-entry> 		
 	</view-state>		
 		
 </flow>

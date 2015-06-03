@@ -57,7 +57,7 @@ public class VegetablesController {
 	
 	@RequestMapping(value = "/vegetablesFamilyOverview", method = RequestMethod.GET)
 	public String getVegetablesFamilyOverview(Model model) {		
-		model.addAttribute("vegetablesFamilyOverview", getAllVegetablesFamilies());		
+		model.addAttribute("vegetablesFamilyOverview", vegetablesFamilyService.getAll());		
 		return toVegetablesFamilyOverview;
 	}
 	@RequestMapping(value = "/vegetablesFamilyAdd", method = RequestMethod.GET)
@@ -111,7 +111,7 @@ public class VegetablesController {
 		Vegetables vegetables = new Vegetables();
 		model.addAttribute("vegetables", vegetables);		
 		model.addAttribute("availabilities", Availability.values());
-		model.addAttribute("vegetablesFamilies", getAllVegetablesFamilies());		
+		model.addAttribute("vegetablesFamilies", vegetablesFamilyService.getAll());		
 		return toVegetablesAdd;
 	}
 	
@@ -120,7 +120,7 @@ public class VegetablesController {
 		Vegetables vegetables = vegetablesService.getById(new Long(id));
 		model.addAttribute("vegetables", vegetables);		
 		model.addAttribute("availabilities", Availability.values());
-		model.addAttribute("vegetablesFamilies", getAllVegetablesFamilies());		
+		model.addAttribute("vegetablesFamilies", vegetablesFamilyService.getAll());		
 		return toVegetablesAdd;
 	}
 	
@@ -134,7 +134,7 @@ public class VegetablesController {
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){	
 			request.setAttribute("exception", "exception.wrong.input");					
 			model.addAttribute("availabilities", Availability.values());
-			model.addAttribute("vegetablesFamilies", getAllVegetablesFamilies());		
+			model.addAttribute("vegetablesFamilies", vegetablesFamilyService.getAll());		
 			return toVegetablesAdd;
 		} else {
 			vegetablesService.save(vegetables);		
@@ -153,7 +153,7 @@ public class VegetablesController {
 		} else if(StringUtils.isEmpty(action) && result.hasErrors()){	
 			model.addAttribute("vegetables", vegetables);		
 			model.addAttribute("availabilities", Availability.values());
-			model.addAttribute("vegetablesFamilies", getAllVegetablesFamilies());		
+			model.addAttribute("vegetablesFamilies", vegetablesFamilyService.getAll());		
 			request.setAttribute("exception", "exception.wrong.input");
 			return "vegetablesAdd";
 		} else {
@@ -166,10 +166,10 @@ public class VegetablesController {
 	}
 
 	
-	private List<VegetablesFamily> getAllVegetablesFamilies() {
-		Iterable<VegetablesFamily> iterable = vegetablesFamilyService.getAll(); 
-		return Lists.newArrayList(iterable);
-	}
+//	private List<VegetablesFamily> getAllVegetablesFamilies() {
+//		Iterable<VegetablesFamily> iterable = vegetablesFamilyService.getAll(); 
+//		return Lists.newArrayList(iterable);
+//	}
 	
 	
 	

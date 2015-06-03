@@ -1,7 +1,5 @@
 package foodselector.web.base.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -16,8 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.google.common.collect.Lists;
 
 import foodselector.domain.Pasta;
 import foodselector.service.IPastaService;
@@ -40,7 +36,7 @@ public class PastaController {
 	
 	@RequestMapping(value = "/pastaOverview", method = RequestMethod.GET)
 	public String getPastaOverview(Model model) {		
-		model.addAttribute("pastas", getAllPastas());		
+		model.addAttribute("pastas", pastaService.getAll());		
 		return toPastaOverview;
 	}
 	
@@ -91,8 +87,8 @@ public class PastaController {
 		
 		return toPastaOverviewRedirect;
 	}
-	private List<Pasta> getAllPastas() {
-		Iterable<Pasta> iterable =  pastaService.getAll();
-		return Lists.newArrayList(iterable);
-	}
+//	private List<Pasta> getAllPastas() {
+//		Iterable<Pasta> iterable =  pastaService.getAll();
+//		return Lists.newArrayList(iterable);
+//	}
 }
