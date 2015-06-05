@@ -15,8 +15,8 @@
 	    	 </div>
        	</c:if>
        		
-		<fieldset class="fsStyle">
-		<legend class="content large"><spring:message code="meat_overview" /></legend>
+		<fieldset class="scheduler-border">
+		<legend class="content large scheduler-border"><spring:message code="meat_overview" /></legend>
 		
 		<c:if test="${not empty meatOverview}">		
 		<table class="content large">			

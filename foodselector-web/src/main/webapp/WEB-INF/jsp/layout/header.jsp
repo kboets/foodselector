@@ -4,20 +4,21 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div class="header">
-    <div >
+    <div>
       <div class="logo">
         <h1><a href="index.html"><span>FOOD</span>SELECTOR<br />
           <small>Selecteer uw menu</small></a></h1>
       </div>
-      <div class="clr"></div>
-      <div class="menu">
-        <ul>
-          <li><a href="<c:url value='/' />"><span>Home</span></a></li>
+      <div class="clr"></div>      
+      <div class="navigation">
+        <ul class="nav nav-tabs">
+          <li><a href="<c:url value='/' />" class="menu-button"><span>Home</span></a></li>
           <li><a href="<c:url value='/dishflow' />"><span><spring:message code="header_link_dish" /></span></a></li>
           <li><a href="<c:url value='/ingredients' />"><span><spring:message code="header_link_ingredients" /></span></a></li>          
           <li><a href="contact.html"><span>Contact Us</span></a></li>
-        </ul>
+        </ul>      
       </div>
+      <!-- 
       <div class="search">
         <form id="form1" name="form1" method="post" action="#">
           <label><span>
@@ -27,8 +28,9 @@
           </label>
         </form>
       </div>
-      <div class="clr"></div>
+       -->   
     </div>
+    <div class="clr"></div>
     <div class="headert_text_resize"></div>
-    <!--<div class="clr"></div>-->
+    
  </div>

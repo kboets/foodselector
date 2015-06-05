@@ -10,6 +10,8 @@
 	
 	<div class="clr"></div>	
 	
+	<fieldset class="scheduler-border">
+	<legend class="scheduler-border"><spring:message code="dish_add_subtitle_additive" /></legend>	
 	<form:form id="dishForm"  modelAttribute="dish" cssClass="form-horizontal" action="${flowExecutionUrl}" >
 		<div class="form-horizontal" role="form">			
 			<div class="form-group">
@@ -27,10 +29,27 @@
 	    					<form:option value="${option}" ><spring:message code="${option.descriptionCode}" /></form:option>
 	    				</c:forEach>	    	 					    	 					    	 				
 	    	 			</form:select>
-	    			</div>
+	    	 		</div>
+	    	 		<div class="col-md-2">
+	    	 			<div align="right" >
+	    	 				<button class="btn" id="selectAdditiveType" type="submit" name="_eventId_selectAdditiveType">
+	    	 					<spring:message code="button_add" />
+	    	 				</button>	 
+	    	 			</div>
+	    			</div>	    			
+	    			
 	     	</div>	    	 
 	     	<tiles:insertAttribute name="selectedAdditives"/>
 		</div>	
 	</form:form>
-
+	</fieldset>
+	<div class="buttons">
+		<button class="btn btn-primary bold" id="next-button" type="submit" name="_eventId_save"><spring:message code="button.next" /></button>	 
+	</div>
+	
 </div>
+
+
+<script type="text/javascript">
+
+</script>

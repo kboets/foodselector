@@ -13,6 +13,14 @@
 		<on-entry>
 			<evaluate expression="dishController.createDishAdditives()" result="viewScope.dishAdditives" />
 		</on-entry> 		
+		<transition on="selectAdditiveType" >
+			<evaluate expression="dishController.selectAdditives(flowScope.dish.dishAdditives)"  result="flowScope.selectedAdditives"/>
+			<render fragments="selectedAdditives"/>
+		</transition>
+		
+		
 	</view-state>		
+		
+	
 		
 </flow>

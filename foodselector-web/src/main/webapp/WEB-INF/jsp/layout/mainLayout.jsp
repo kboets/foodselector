@@ -9,11 +9,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!-- foodselector css -->
 <link rel="stylesheet" type="text/css"	href="<c:url value='/resources/css/style.css'/>" />
-<link rel="stylesheet" type="text/css"	href="<c:url value='/resources/css/foodselector.css'/>" />
 <!-- jquery css -->
 <link rel="stylesheet" type="text/css"	href="<c:url value='/resources/css/jquery-ui.css'/>" />
 <!-- bootstrap css--> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"	href="<c:url value='/resources/css/foodselector.css'/>" />
 
 <script type="text/javascript"	src="<c:url value='/resources/js/jquery.js'/>"></script>
 <script type="text/javascript"	src="<c:url value='/resources/js/jquery-ui.js'/>"></script>

@@ -34,4 +34,15 @@ public class DishController {
 		return dishAdditives;		
 	}
 	
+	
+	public List<DishAdditive> selectAdditives(List<DishAdditive> additvives) {
+		List<DishAdditive> result = new ArrayList<DishAdditive>();		
+		DishAdditive dishSelectedAdditive = additvives.get(0);
+		if(dishSelectedAdditive instanceof Pasta) {
+			result.addAll(pastaService.getAll());			
+		}
+		return result;
+	}
+	
+	
 }
