@@ -25,8 +25,11 @@
 	
 	<definition name="toCreateDish" extends="mainLayout">
 		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" />  
-		<put-attribute name="body" value="/WEB-INF/jsp/dish/selectDishType.jsp" />
+		<put-attribute name="body" value="show.selected.additives" />
 	</definition>
-	
+
+	<definition name="show.selected.additives" template="/WEB-INF/jsp/dish/selectDishAdditive.jsp">
+		<put-attribute name="selectedAdditives" value="/WEB-INF/jsp/dish/showSelectedAdditive.jsp"/>
+	</definition>	
 	
 </tiles-definitions>

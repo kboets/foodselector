@@ -5,10 +5,13 @@
 		http://www.springframework.org/schema/webflow 
 		http://www.springframework.org/schema/webflow/spring-webflow.xsd">
 
+	<on-start>
+		<evaluate expression="dishController.createDish()" result="flowScope.dish" />
+	</on-start>
 		
 	<view-state id="createDish" model="dish" view="toCreateDish">
 		<on-entry>
-			<evaluate expression="dishController.createDishAdditives()" result="viewScope.dishTypes" />
+			<evaluate expression="dishController.createDishAdditives()" result="viewScope.dishAdditives" />
 		</on-entry> 		
 	</view-state>		
 		
