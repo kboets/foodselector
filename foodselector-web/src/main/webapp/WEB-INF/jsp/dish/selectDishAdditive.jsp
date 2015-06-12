@@ -2,6 +2,9 @@
 <%@ include file="../taglib_includes.jsp"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
+
+
+
 <div class="right_body">
 
 	<h2>
@@ -51,5 +54,34 @@
 
 
 <script type="text/javascript">
-
+	$(function () {
+		var submit = $('#selectAdditiveType');
+		
+		submit.click(function(){
+			var form = $('#dishForm');
+			var event = submit.attr('name');
+			var data = form.serialize()+ '&amp'+ event + '=' + event + '&amp;ajaxSource=' + submit.attr('id');
+			
+			$.ajax({
+				type: "POST",
+				dataType: 'text',
+				url: form.attr( 'action' ),
+				data: data,
+				success : function(result) {
+					$('#allSelectedAdditives').replaceWith(result);
+				}					
+			});
+			return false;
+		});
+	
+	});  
+	/* dojo.addOnLoad(function() {
+		alert('dojo AddonLoad');
+		Spring.addDecoration(new Spring.AjaxEventDecoration({
+			elementId :"selectAdditiveType",
+			event : "onclick",
+			formId: "dishForm"
+		}));	
+	});  */	
+		
 </script>

@@ -27,15 +27,13 @@ public class Dish extends AbstractEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="DISH_ID")
-	private Long id;
-	
+	private Long id;	
 	@Column(name="NAME", nullable=false, unique=true)
-	private String name;
-	
+	private String name;	
 	@Transient
-	private List<DishAdditive> dishAdditives;
-	
-	 
+	private List<DishAdditive> dishAdditives;	 
+	@Transient
+	private DishAdditive selectedAdditive;
 	
 	@ManyToOne
 	@JoinColumn(name="dish_potato_id")
@@ -79,5 +77,18 @@ public class Dish extends AbstractEntity {
 
 	public void setPasta(Pasta pasta) {
 		this.pasta = pasta;
+	}
+
+	public DishAdditive getSelectedAdditive() {
+		return selectedAdditive;
+	}
+
+	public void setSelectedAdditive(DishAdditive selectedAdditive) {
+		this.selectedAdditive = selectedAdditive;
+		if(selectedAdditive instanceof Pasta) {
+			setPasta((Pasta) selectedAdditive);
+		} else if(selectedAdditive instanceof Potato) {
+			setPotato((Potato) selectedAdditive);
+		}
 	}
 }
