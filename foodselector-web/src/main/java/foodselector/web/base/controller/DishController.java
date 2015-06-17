@@ -9,8 +9,11 @@ import org.springframework.stereotype.Controller;
 import foodselector.domain.Dish;
 import foodselector.domain.DishAdditive;
 import foodselector.domain.Pasta;
+import foodselector.domain.Vegetables;
+import foodselector.service.IDishService;
 import foodselector.service.IPastaService;
 import foodselector.service.IPotatoService;
+import foodselector.service.IVegetablesService;
 
 @Controller
 public class DishController {
@@ -19,6 +22,10 @@ public class DishController {
 	private IPastaService pastaService;
 	@Autowired
 	private IPotatoService potatoService;
+	@Autowired
+	private IDishService dishService;
+	@Autowired
+	private IVegetablesService vegetablesService;
 	
 	public Dish createDish() {		 
 		return new Dish();
@@ -36,13 +43,22 @@ public class DishController {
 	}
 	
 	
-	public List<DishAdditive> selectAdditives(List<DishAdditive> additives) {
+	public List<DishAdditive> selectAdditive(DishAdditive  selectedAdditive) {
 		List<DishAdditive> result = new ArrayList<DishAdditive>();		
-		DishAdditive dishSelectedAdditive = additives.get(0);
-		if(dishSelectedAdditive instanceof Pasta) {
+		if(selectedAdditive instanceof Pasta) {
 			result.addAll(pastaService.getAll());			
 		}
 		return result;
+	}
+
+	public List<Vegetables> getAllVegetables() {
+		return vegetablesService.getAll();		
+	}
+	
+	
+	public Dish saveDish(Dish dish) {
+		Dish saveOrUpdated = dishService.save(dish); 
+		return saveOrUpdated;
 	}
 	
 	

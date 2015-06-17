@@ -15,8 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.springframework.context.MessageSource;
-
 @Entity
 @Table(name="DISH")
 public class Dish extends AbstractEntity {
@@ -29,16 +27,19 @@ public class Dish extends AbstractEntity {
 	@Column(name="DISH_ID")
 	private Long id;	
 	@Column(name="NAME", nullable=false, unique=true)
-	private String name;	
+	private String name;
+	@ManyToMany	
+	@JoinTable(name="DISH_VEGETABLES", 
+		joinColumns=@JoinColumn(name="DISH_ID"), 
+		inverseJoinColumns=@JoinColumn(name="VEGETABLES_ID"))
+	private List<Vegetables> vegetables;
 	@Transient
 	private List<DishAdditive> dishAdditives;	 
 	@Transient
-	private DishAdditive selectedAdditive;
-	
+	private DishAdditive selectedAdditive;	
 	@ManyToOne
 	@JoinColumn(name="dish_potato_id")
-	private Potato potato;
-	
+	private Potato potato;	
 	@ManyToOne
 	@JoinColumn(name="dish_pasta_id")
 	private Pasta pasta; 
@@ -90,5 +91,13 @@ public class Dish extends AbstractEntity {
 		} else if(selectedAdditive instanceof Potato) {
 			setPotato((Potato) selectedAdditive);
 		}
+	}
+
+	public List<Vegetables> getVegetables() {
+		return vegetables;
+	}
+
+	public void setVegetables(List<Vegetables> vegetables) {
+		this.vegetables = vegetables;
 	}
 }

@@ -46,8 +46,8 @@
 	    	 </div>
 	    	 
 	    	 <div class="buttons">
-	    	 	<button class="btn bold" id="fishOrigin_save"><spring:message code="button_save" /></button> 
-				<button class="btn bold" id="fishOrigin_back"><spring:message code="button_back" /></button>
+	    	 	<button class="btn bold" id="fishOrigin_save"><spring:message code="button.save" /></button> 
+				<button class="btn bold" id="fishOrigin_back"><spring:message code="button.back" /></button>
 	    	 </div>
 		</div>
 	</form:form>

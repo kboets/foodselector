@@ -12,14 +12,19 @@
 	<view-state id="createDish" model="dish" view="toCreateDish">
 		<on-entry>
 			<evaluate expression="dishController.createDishAdditives()" result="viewScope.dishAdditives" />
+			<evaluate expression="dishController.getAllVegetables()" result="viewScope.allVegetables" />
 		</on-entry> 		
 		<transition on="selectAdditiveType" >
-			<evaluate expression="dishController.selectAdditives(flowScope.dish.dishAdditives)"  result="flowScope.selectedAdditives"/>
-			<render fragments="selectedAdditives"/>
+			<evaluate expression="dishController.selectAdditives(flowScope.dish.selectAdditive)"  result="flowScope.selectedAdditives"/>						
 		</transition>
-		
-		
-	</view-state>		
+		<transition on="save"  to="overviewCreatedDish">
+			<evaluate expression="dishController.saveDish(flowScope.dish)"  result="flowScope.dish"/>
+		</transition>		
+	</view-state>	
+	
+	<view-state id="overviewCreatedDish" model="dish" view="toOverviewCreatedDish">
+		<transition on="toSelectDishAdditive"  to="createDish" />					
+	</view-state>	
 		
 	
 		
