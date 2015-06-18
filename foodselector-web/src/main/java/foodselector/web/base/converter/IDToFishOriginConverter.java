@@ -6,6 +6,7 @@ import org.springframework.core.convert.converter.Converter;
 import foodselector.domain.FishOrigin;
 import foodselector.service.IFishOriginService;
 
+@Deprecated
 public class IDToFishOriginConverter implements Converter<Long, FishOrigin> {
 
 	@Autowired

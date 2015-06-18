@@ -10,16 +10,17 @@
         
 	<context:component-scan base-package="foodselector.web.base.*" />
 		
-	<mvc:annotation-driven  conversion-service="conversionService"/>
+	<mvc:annotation-driven  conversion-service="mvcConversionService"/>
 	
-	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+	<bean id="mvcConversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
 		<property name="converters">
 			<set>
 				<bean class="foodselector.web.base.converter.StringToMeatOriginConverter"/>
 				<bean class="foodselector.web.base.converter.StringToFishOriginConverter" />
-				<bean class="foodselector.web.base.converter.IDToFishOriginConverter" />		
+				<!-- <bean class="foodselector.web.base.converter.IDToFishOriginConverter" /> -->		
 				<bean class="foodselector.web.base.converter.IdToVegetablesConverter" />
-				<bean class="foodselector.web.base.converter.IdToVegetablesFamilyConverter" />				
+				<bean class="foodselector.web.base.converter.IdToVegetablesFamilyConverter" />		
+				<bean class="foodselector.web.base.converter.IdToDishAdditiveConverter" />
 			</set>
 		</property>		
 	</bean>

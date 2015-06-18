@@ -18,7 +18,7 @@
 	</webflow:flow-registry>	
            
     <!-- Plugs in a custom creator for Web Flow views -->       
-	<webflow:flow-builder-services id="flowBuilderServices" view-factory-creator="mvcViewFactoryCreator" development="true"/>
+	<webflow:flow-builder-services id="flowBuilderServices" view-factory-creator="mvcViewFactoryCreator" conversion-service="conversionService" development="true"/>
 	
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
 		<property name="flowExecutor" ref="flowExecutor" />
@@ -32,5 +32,9 @@
 	<bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
 		<property name="viewResolvers" ref="tilesViewResolver"/>
 	</bean>
+	
+	<bean id="conversionService" class="org.springframework.binding.convert.service.DefaultConversionService">
+    	<constructor-arg ref="mvcConversionService"/>
+    </bean>
 	           
 </beans>

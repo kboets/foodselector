@@ -42,7 +42,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 	
 	
 	
-	<beans profile="development">
+	<!-- <beans profile="development"> -->
 		<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
     	    <property name="locations">
         	    <list>
@@ -56,7 +56,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 		<jdbc:initialize-database>
 			<jdbc:script location="classpath:dbscripts/insert_ingredients.sql"/>
 		</jdbc:initialize-database>	
-	</beans>
+	<!-- </beans> -->
 	
 	<beans profile="production">
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
