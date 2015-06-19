@@ -52,7 +52,7 @@ public class Pasta extends AbstractEntity implements DishAdditive{
 
 	
 	public String getDescriptionCode() {	
-		return "pasta_description_dish";
+		return "pasta.description.dish";
 	}
 
 	

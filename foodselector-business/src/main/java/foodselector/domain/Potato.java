@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import foodselector.domain.enums.PotatoType;
 
@@ -26,7 +27,8 @@ public class Potato extends AbstractEntity implements DishAdditive{
 	@Column(name="POTATO_TYPE", nullable=false)
 	@Enumerated(EnumType.STRING)
 	private PotatoType potatoType;
-
+	 
+		
 	public Long getId() {
 		return id;
 	}
