@@ -10,12 +10,12 @@
 	</on-start>
 		
 	<view-state id="createDish" model="dish" view="toCreateDish">
-		<on-entry>
-			<evaluate expression="dishController.createDishAdditives()" result="viewScope.dishAdditives" />
-			<evaluate expression="dishController.getAllVegetables()" result="viewScope.allVegetables" />
-		</on-entry> 		
+		<on-render>
+			<evaluate expression="dishController.createDishAdditives()" result="requestScope.dishAdditives" />
+			<evaluate expression="dishController.getAllVegetables()" result="requestScope.allVegetables" />
+		</on-render> 		
 		<transition on="selectAdditiveType" >
-			<evaluate expression="dishController.selectAdditives(flowScope.dish.selectAdditive)"  result="flowScope.selectedAdditives"/>						
+			<evaluate expression="dishController.selectAdditives(flowScope.dish.selectedAdditive)"  result="flowScope.selectedAdditive"/>						
 		</transition>
 		<transition on="save"  to="overviewCreatedDish">
 			<evaluate expression="dishController.saveDish(flowScope.dish)"  result="flowScope.dish"/>

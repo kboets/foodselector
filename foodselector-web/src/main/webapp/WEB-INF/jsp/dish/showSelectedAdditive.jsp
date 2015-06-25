@@ -3,8 +3,7 @@
 
 
 
-<div id="selectedAdditives">
-	
+<div id="selectedAdditives">	
 	<div class="form-group">
 		<c:choose>
 			<c:when test="${fn:length(selectedAdditives) > 1}">
@@ -14,7 +13,7 @@
 					<div class="col-md-4">
 						<form:select path="selectedAdditives" multiple="false" id="selected_dishAdditives_list"  size="${selectedAdditiveSize}px" style="width: 250px" >	    	
 							<form:option value="0">Kies een</form:option>
-							<form:options itemLabel="name" />
+							<form:options itemLabel="name" itemValue="id"/>
 						</form:select>	
 					</div>				
 				</div>	

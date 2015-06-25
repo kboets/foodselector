@@ -21,6 +21,7 @@
 				<bean class="foodselector.web.base.converter.IdToVegetablesConverter" />
 				<bean class="foodselector.web.base.converter.IdToVegetablesFamilyConverter" />		
 				<bean class="foodselector.web.base.converter.IdToDishAdditiveConverter" />
+				<bean class="foodselector.web.base.converter.IdToPastaConverter" />				
 			</set>
 		</property>		
 	</bean>

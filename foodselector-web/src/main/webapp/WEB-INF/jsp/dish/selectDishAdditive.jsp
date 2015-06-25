@@ -47,25 +47,11 @@
 	    	 			<div align="right" >
 	    	 				<button class="btn" type="submit" name="_eventId_selectAdditiveType"><spring:message code="button_add" /></button>	 
 	    	 			</div>
-	    			</div>	
-	    			<!--<c:set var="selectedAdditiveSize" value="${fn:length(selectedAdditives)}" />
-	    			<c:out value="${selectedAdditiveSize}" />
-	    			<c:choose>	    			
-						<c:when test="${fn:length(selectedAdditives) > 1}">	    			
-	    					<div class="form-group">										
-								<form:label path="selectedAdditive" cssClass="control-label col-md-3"></form:label>
-								<div class="col-md-4">
-									<form:select path="selectedAdditives" multiple="false" id="selected_dishAdditives_list"  size="${selectedAdditiveSize}px" style="width: 250px" >	    	
-										<form:option value="0">Kies een Pasta</form:option>
-										<form:options itemLabel="name" />
-									</form:select>	
-								</div>				
-							</div>					
-						</c:when>
-					 </c:choose>
-					 -->
-	     		</div>	     				
-		</div>		
+	    			</div> 
+	     	</div>
+	     	
+
+			</div>		
 		</fieldset>
 		<div class="buttons">
 			<button class="btn btn-primary bold" id="next-button" type="submit" name="_eventId_save"><spring:message code="button.next" /></button>	 
