@@ -17,6 +17,12 @@ public class PastaService extends AbstractService<Pasta, Long> implements
 		this.pastaRepository = pastaRepository;
 		super.setRepository(pastaRepository);
 	}
-	
 
+	@Override
+	public Pasta findByDescriptionCode(String descripionCode) {		
+		return getAll().get(0);
+	}
+	
+	
+	
 }

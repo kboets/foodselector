@@ -17,4 +17,13 @@ public enum PotatoType {
 	public void setCode(String code) {
 		this.code = code;
 	}
+	
+	public static PotatoType findByCode(String code) {
+		for(PotatoType potatoType : values()) {
+			if(potatoType.getCode().equals(code)) {
+				return potatoType;
+			}
+		}
+		return null;
+	}
 }

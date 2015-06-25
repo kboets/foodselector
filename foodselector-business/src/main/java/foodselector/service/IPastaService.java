@@ -4,4 +4,5 @@ import foodselector.domain.Pasta;
 
 public interface IPastaService extends IAbstractService<Pasta, Long> {
 
+	Pasta findByDescriptionCode(String descripionCode);
 }
