@@ -23,21 +23,12 @@
 	    	 	<div class="col-md-7">
 	    	 		<form:input path="name" cssClass="form-control" cssErrorClass="errorFormInput"/>&nbsp;<form:errors path="name" cssClass="error" />
 	    	 	</div>	    	 	
-	    	 </div>
-	    	<div class="form-group">
-	    		<form:label path="vegetables" cssClass="control-label col-md-3"><spring:message code="dish_add_vegetables"/></form:label>
-	    		<c:set var="vegetablesSize" value="${fn:length(allVegetables)}" />
-	    		<div class="col-md-4">
-	    			<form:select path="vegetables" multiple="true" >							
-						<form:options items="${allVegetables}" itemLabel="name" itemValue="id"  />					
-					</form:select>
-	    		</div>
-	    	</div>
+	    	 </div>	    	
 	    	<div class="form-group">
 	    			<form:label path="name" cssClass="control-label col-md-3"><spring:message code="dish_additive"/></form:label>
 	    			<c:set var="additiveSize" value="${fn:length(dishAdditives)}" />  			
 	    			<div class="col-md-4">
-	    				<form:select path="selectedAdditive" multiple="false" id="all_dishAdditives_list"  size="${additiveSize}px" style="width: 250px">	    	 				
+	    				<form:select path="additiveToChoose" multiple="false" id="all_dishAdditives_list"  size="${additiveSize}px" style="width: 250px">	    	 				
 	    				<c:forEach items="${dishAdditives}" var="option" >	    					
 	    					<form:option  value="${option.descriptionCode}"><spring:message code="${option.descriptionCode}" /></form:option>
 	    				</c:forEach>	    	 					    	 					    	 				
@@ -45,13 +36,13 @@
 	    	 		</div>
 	    	 		<div class="col-md-2">
 	    	 			<div align="right" >
-	    	 				<button class="btn" type="submit" name="_eventId_selectAdditiveType"><spring:message code="button_add" /></button>	 
+	    	 				<button class="btn" type="submit" name="_eventId_selectAdditiveType" style="margin-top:${fn:length(dishAdditives)}"><spring:message code="button_add" /></button>	 
 	    	 			</div>
 	    			</div> 
 	     	</div>
-	     	
+	     	<tiles:insertAttribute name="selectedAdditive" />	     	
 
-			</div>		
+		</div>		
 		</fieldset>
 		<div class="buttons">
 			<button class="btn btn-primary bold" id="next-button" type="submit" name="_eventId_save"><spring:message code="button.next" /></button>	 
@@ -63,7 +54,7 @@
 
 
 <script type="text/javascript">
-	/* $(function () {
+/*$(function () {
 		var submit = $('#selectAdditiveType');
 		
 		submit.click(function(){
@@ -77,20 +68,21 @@
 				url: form.attr( 'action' ),
 				data: data,
 				success : function(result) {
-					$('#allSelectedAdditives').replaceWith(result);
+					$('#selectedAdditive').replaceWith(result);
 				}					
 			});
 			return false;
 		});
 	
-	}); */  
-	/* dojo.addOnLoad(function() {
+	});  
+	 */
+	 dojo.addOnLoad(function() {
 		alert('dojo AddonLoad');
 		Spring.addDecoration(new Spring.AjaxEventDecoration({
 			elementId :"selectAdditiveType",
 			event : "onclick",
 			formId: "dishForm"
 		}));	
-	});  */	
+	});  
 		
 </script>

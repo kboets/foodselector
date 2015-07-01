@@ -15,7 +15,8 @@
 			<evaluate expression="dishController.getAllVegetables()" result="requestScope.allVegetables" />
 		</on-render> 		
 		<transition on="selectAdditiveType" >
-			<evaluate expression="dishController.selectAdditives(flowScope.dish.selectedAdditive)"  result="flowScope.selectedAdditive"/>						
+			<evaluate expression="dishController.determineTypeOfAdditives(flowScope.dish.additiveToChoose)"  result="flowScope.pickedAdditives"/>
+			<render fragments="selectedAdditive"/>						
 		</transition>
 		<transition on="save"  to="overviewCreatedDish">
 			<evaluate expression="dishController.saveDish(flowScope.dish)"  result="flowScope.dish"/>

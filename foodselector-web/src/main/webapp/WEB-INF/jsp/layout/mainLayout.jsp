@@ -22,7 +22,13 @@
 <script type="text/javascript"	src="<c:url value='/resources/js/arial.js' />"></script>
 <script type="text/javascript"	src="<c:url value='/resources/js/cuf_run.js'/>"></script>
 <script type="text/javascript"	src="<c:url value='/resources/js/foodselector.js'/>"></script>
-<!-- <script type="text/javascript"	src="<c:url value='/resources/js/progressbar.js'/>"></script> -->
+
+<spring:url value="/public/resources/dojo/dojo.js"	var="dojo" />
+<script type="text/javascript" src="${dojo}"><!----></script>
+<spring:url value="/public/resources/spring/Spring.js"	var="springJs" />
+<script type="text/javascript" src="${springJs}"> <!----></script>
+<spring:url value="/public/resources/spring/Spring-Dojo.js" var="springDojo" />
+<script type="text/javascript" src="${springDojo}"><!----></script>
 
 
 

@@ -34,9 +34,11 @@ public class Dish extends AbstractEntity {
 		inverseJoinColumns=@JoinColumn(name="VEGETABLES_ID"))
 	private List<Vegetables> vegetables;
 	@Transient
-	private List<DishAdditive> dishAdditives;	 
+	private List<DishAdditive> dishAdditives;
 	@Transient
-	private DishAdditive selectedAdditive;	
+	private DishAdditive additiveToChoose;	
+	@Transient
+	private DishAdditive pickedAdditive;	
 	@ManyToOne
 	@JoinColumn(name="dish_potato_id")
 	private Potato potato;	
@@ -60,6 +62,27 @@ public class Dish extends AbstractEntity {
 		this.dishAdditives = dishAdditives;
 	}
 
+	public DishAdditive getPickedAdditive() {
+		return pickedAdditive;
+	}
+
+	public void setPickedAdditive(DishAdditive pickedAdditive) {		
+		this.pickedAdditive = pickedAdditive;
+		if(pickedAdditive instanceof Pasta) {
+			setPasta((Pasta) pickedAdditive);
+		} else if(pickedAdditive instanceof Potato) {
+			setPotato((Potato) pickedAdditive);
+		}
+	}
+
+	public DishAdditive getAdditiveToChoose() {
+		return additiveToChoose;
+	}
+
+	public void setAdditiveToChoose(DishAdditive additiveToChoose) {
+		this.additiveToChoose = additiveToChoose;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -78,19 +101,6 @@ public class Dish extends AbstractEntity {
 
 	public void setPasta(Pasta pasta) {
 		this.pasta = pasta;
-	}
-
-	public DishAdditive getSelectedAdditive() {
-		return selectedAdditive;
-	}
-
-	public void setSelectedAdditive(DishAdditive selectedAdditive) {
-		this.selectedAdditive = selectedAdditive;
-		if(selectedAdditive instanceof Pasta) {
-			setPasta((Pasta) selectedAdditive);
-		} else if(selectedAdditive instanceof Potato) {
-			setPotato((Potato) selectedAdditive);
-		}
 	}
 
 	public List<Vegetables> getVegetables() {

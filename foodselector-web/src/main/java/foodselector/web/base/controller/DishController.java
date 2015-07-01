@@ -45,12 +45,12 @@ public class DishController {
 	}
 	
 	
-	public List<DishAdditive> selectAdditives(DishAdditive  selectedAdditive) {
+	public List<DishAdditive> determineTypeOfAdditives(DishAdditive chosenAdditive) {
 		List<DishAdditive> result = new ArrayList<DishAdditive>();		
-		if(selectedAdditive instanceof Pasta) {
+		if(chosenAdditive instanceof Pasta) {
 			result.addAll(pastaService.getAll());			
 		} else {
-			result.add(selectedAdditive);
+			result.add(chosenAdditive);
 		}
 		
 		return result;
