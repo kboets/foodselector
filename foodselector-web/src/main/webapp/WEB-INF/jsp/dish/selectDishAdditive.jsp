@@ -3,8 +3,6 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
 
-
-
 <div class="right_body">
 
 	<h2>
@@ -40,49 +38,22 @@
 	    	 			</div>
 	    			</div> 
 	     	</div>
-	     	<tiles:insertAttribute name="selectedAdditive" />	     	
+	     	  	
 
 		</div>		
 		</fieldset>
+				
 		<div class="buttons">
-			<button class="btn btn-primary bold" id="next-button" type="submit" name="_eventId_save"><spring:message code="button.next" /></button>	 
-		</div>	
+			<button class="btn btn-primary bold pull-right RbtnMargin" id="next-button" type="submit" name="_eventId_save"  ><spring:message code="button.next" /></button>
+			<button class="btn btn-primary bold" id="cancel-button" type="submit" name="_eventId_cancel"><spring:message code="button.cancel" /></button>
+		</div>
+		
+			
+							 
+			
 	</form:form>
 	
 	
 </div>
 
 
-<script type="text/javascript">
-/*$(function () {
-		var submit = $('#selectAdditiveType');
-		
-		submit.click(function(){
-			var form = $('#dishForm');
-			var event = submit.attr('name');
-			var data = form.serialize()+ '&amp'+ event + '=' + event + '&amp;ajaxSource=' + submit.attr('id');
-			
-			$.ajax({
-				type: "POST",
-				dataType: 'text',
-				url: form.attr( 'action' ),
-				data: data,
-				success : function(result) {
-					$('#selectedAdditive').replaceWith(result);
-				}					
-			});
-			return false;
-		});
-	
-	});  
-	 */
-	 dojo.addOnLoad(function() {
-		alert('dojo AddonLoad');
-		Spring.addDecoration(new Spring.AjaxEventDecoration({
-			elementId :"selectAdditiveType",
-			event : "onclick",
-			formId: "dishForm"
-		}));	
-	});  
-		
-</script>

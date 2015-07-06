@@ -66,5 +66,11 @@ public class DishController {
 		return saveOrUpdated;
 	}
 	
+	public void cancelDish(Dish dish) {
+		if(dish.getId() != null) {
+			dishService.delete(dish);
+		}
+	}
+	
 	
 }

@@ -14,19 +14,36 @@
 			<evaluate expression="dishController.createDishAdditives()" result="requestScope.dishAdditives" />
 			<evaluate expression="dishController.getAllVegetables()" result="requestScope.allVegetables" />
 		</on-render> 		
-		<transition on="selectAdditiveType" >
-			<evaluate expression="dishController.determineTypeOfAdditives(flowScope.dish.additiveToChoose)"  result="flowScope.pickedAdditives"/>
-			<render fragments="selectedAdditive"/>						
+		<transition on="selectAdditiveType"  to="determineAdditiveType" bind="true">
+			<evaluate expression="dishController.determineTypeOfAdditives(flowScope.dish.additiveToChoose)"  result="flowScope.pickedAdditives" />									
 		</transition>
-		<transition on="save"  to="overviewCreatedDish">
+		<transition on="save"  to="selectVegetablesView">
 			<evaluate expression="dishController.saveDish(flowScope.dish)"  result="flowScope.dish"/>
-		</transition>		
+		</transition>
+		<transition on="cancel" to="cancel" />		
 	</view-state>	
+	
+	<decision-state id="determineAdditiveType">
+		<if test="flowScope.pickedAdditives.size() > 1" then="selectAdditiveTypeView"/>
+		<if test="flowScope.pickedAdditives.size() = 1" then="selectVegetablesView" />
+	</decision-state>
+	
+	<view-state id="selectAdditiveTypeView" model="dish" view="toSelectAdditiveView">
+			
+	</view-state>
+	
+	<view-state id="selectVegetablesView" model="dish" view="toOverviewCreatedDish">
+			
+	</view-state>
 	
 	<view-state id="overviewCreatedDish" model="dish" view="toOverviewCreatedDish">
 		<transition on="toSelectDishAdditive"  to="createDish" />					
 	</view-state>	
 		
-	
+	<end-state id="cancel" view="redirect:/">
+		<on-entry>
+			<evaluate expression="dishController.cancelDish(flowScope.dish)" />
+		</on-entry>
+	</end-state>
 		
 </flow>
