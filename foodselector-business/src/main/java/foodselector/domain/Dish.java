@@ -71,8 +71,11 @@ public class Dish extends AbstractEntity {
 		return additiveToChoose;
 	}
 
-	public void setAdditiveToChoose(DishAdditive additiveToChoose) {
+	public void setAdditiveToChoose(DishAdditive additiveToChoose) {		
 		this.additiveToChoose = additiveToChoose;
+		if(pickedAdditive instanceof Potato) {
+			setPickedAdditive(additiveToChoose);
+		}
 	}
 
 	public Long getId() {

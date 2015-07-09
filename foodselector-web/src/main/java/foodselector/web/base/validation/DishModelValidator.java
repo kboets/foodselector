@@ -12,10 +12,13 @@ import foodselector.domain.Dish;
 @Component
 public class DishModelValidator {
 
-//	public void validateSelectAdditiveTypeView(Dish dish, ValidationContext context) {
-//		MessageContext messages = context.getMessageContext();
-//		if(StringUtils.isBlank(dish.getName())) {
-//			 messages.addMessage(new MessageBuilder().error().source("name").code("no.name").build());
-//		}
-//	}
+	public void validateSelectVegetable(Dish dish, ValidationContext context) {
+		MessageContext messages = context.getMessageContext();
+		if(StringUtils.isBlank(dish.getName())) {
+			 messages.addMessage(new MessageBuilder().error().source("name").code("no.name").build());
+		}
+		if(dish.getPickedAdditive() == null) {
+			 messages.addMessage(new MessageBuilder().error().source("pickedAdditive").code("no.additive.selected").build());
+		}
+	}
 }

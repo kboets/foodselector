@@ -27,11 +27,20 @@
 	</decision-state>
 	
 	<view-state id="selectAdditiveTypeView" model="dish" view="toSelectAdditiveView">
-			
+		<transition on="selectVegetable" to="selectVegetablesView" validate="true">
+			<evaluate expression="dishController.validateDetermineAdditiveType(flowScope.dish, messageContext)"  />
+		</transition>
+		<transition on="back" to="createDish" validate="false">
+			<evaluate expression="dishController.resetDishAdditive(flowScope.dish)"  />			
+		</transition>
+		<transition on="cancel" to="cancel" />	
 	</view-state>
 	
 	<view-state id="selectVegetablesView" model="dish" view="toOverviewCreatedDish">
-			
+		<transition on="back" to="createDish" validate="false">
+			<evaluate expression="dishController.resetDishAdditive(flowScope.dish)"  />			
+		</transition>
+		<transition on="cancel" to="cancel" />	
 	</view-state>
 	
 	<view-state id="overviewCreatedDish" model="dish" view="toOverviewCreatedDish">

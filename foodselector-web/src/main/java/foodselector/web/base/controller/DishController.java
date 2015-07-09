@@ -76,6 +76,10 @@ public class DishController {
 		}
 	}
 	
+	public void resetDishAdditive(Dish dish) {
+		dish.setAdditiveToChoose(null);
+	}
+	
 	public Event validateDetermineAdditiveType(Dish dish, MessageContext messageContext) {
 		boolean hasError = false;
 		if(StringUtils.isBlank(dish.getName())) {
@@ -96,9 +100,10 @@ public class DishController {
 			return new EventFactorySupport().error(this);	
 		} else {
 			return new EventFactorySupport().success(this);	
-		}	
-		
+		}			
 	}
+	
+	
 	
 	
 }
