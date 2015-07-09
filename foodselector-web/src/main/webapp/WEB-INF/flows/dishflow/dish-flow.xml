@@ -5,21 +5,19 @@
 		http://www.springframework.org/schema/webflow 
 		http://www.springframework.org/schema/webflow/spring-webflow.xsd">
 
-	<on-start>
+ 	<on-start>
 		<evaluate expression="dishController.createDish()" result="flowScope.dish" />
-	</on-start>
+	</on-start> 
 		
 	<view-state id="createDish" model="dish" view="toCreateDish">
-		<on-render>
+		<on-render>			
 			<evaluate expression="dishController.createDishAdditives()" result="requestScope.dishAdditives" />
 			<evaluate expression="dishController.getAllVegetables()" result="requestScope.allVegetables" />
 		</on-render> 		
-		<transition on="selectAdditiveType"  to="determineAdditiveType" bind="true">
+		<transition on="selectAdditiveType"  to="determineAdditiveType" validate="true">				
+			<evaluate expression="dishController.validateDetermineAdditiveType(flowScope.dish, messageContext)"  />
 			<evaluate expression="dishController.determineTypeOfAdditives(flowScope.dish.additiveToChoose)"  result="flowScope.pickedAdditives" />									
-		</transition>
-		<transition on="save"  to="selectVegetablesView">
-			<evaluate expression="dishController.saveDish(flowScope.dish)"  result="flowScope.dish"/>
-		</transition>
+		</transition>		
 		<transition on="cancel" to="cancel" />		
 	</view-state>	
 	

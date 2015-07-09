@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+
 @Entity
 @Table(name="DISH")
 public class Dish extends AbstractEntity {
@@ -25,16 +26,15 @@ public class Dish extends AbstractEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="DISH_ID")
-	private Long id;	
-	@Column(name="NAME", nullable=false, unique=true)
+	private Long id;
+	
+	@Column(name="NAME", nullable=false, unique=true)	
 	private String name;
 	@ManyToMany	
 	@JoinTable(name="DISH_VEGETABLES", 
 		joinColumns=@JoinColumn(name="DISH_ID"), 
 		inverseJoinColumns=@JoinColumn(name="VEGETABLES_ID"))
-	private List<Vegetables> vegetables;
-	@Transient
-	private List<DishAdditive> dishAdditives;
+	private List<Vegetables> vegetables;	
 	@Transient
 	private DishAdditive additiveToChoose;	
 	@Transient
@@ -52,14 +52,6 @@ public class Dish extends AbstractEntity {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public List<DishAdditive> getDishAdditives() {
-		return dishAdditives;
-	}
-
-	public void setDishAdditives(List<DishAdditive> dishAdditives) {		
-		this.dishAdditives = dishAdditives;
 	}
 
 	public DishAdditive getPickedAdditive() {
