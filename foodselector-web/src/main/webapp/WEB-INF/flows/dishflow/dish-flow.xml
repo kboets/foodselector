@@ -36,7 +36,7 @@
 		<transition on="cancel" to="cancel" />	
 	</view-state>
 	
-	<view-state id="selectVegetablesView" model="dish" view="toOverviewCreatedDish">
+	<view-state id="selectVegetablesView" model="dish" view="toSelectVegetable">
 		<transition on="back" to="createDish" validate="false">
 			<evaluate expression="dishController.resetDishAdditive(flowScope.dish)"  />			
 		</transition>

@@ -12,7 +12,7 @@
 				<div class="form-horizontal" role="form">
 					<form:label path="name" cssClass="control-label col-md-3" cssErrorClass="errorFormInput"><spring:message code="dish_add_name"/></form:label>&nbsp;<form:errors path="name" cssClass="error" />
 					<div class="col-md-7">
-							<form:label path="name" cssClass="control-label col-md-3" ><c:out value="${dish.name}"></c:out></form:label>
+							<form:label path="name" cssClass="control-label col-md-5" ><c:out value="${dish.name}" /></form:label>
 					</div>					
 				</div>															
 		</fieldset>	

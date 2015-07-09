@@ -33,6 +33,11 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/dish/determineSelectedDishAdditive.jsp" />
 	</definition>	
 	
+	<definition name="toSelectVegetable" extends="mainLayout">
+		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/dish/selectVegetable.jsp" />
+	</definition>
+	
 	<definition name="toOverviewCreatedDish" extends="mainLayout">
 		<put-attribute name="leftmenu" value="/WEB-INF/jsp/layout/emptyLeftMenu.jsp" />  
 		<put-attribute name="body" value="/WEB-INF/jsp/dish/overviewCreatedDish.jsp" />
