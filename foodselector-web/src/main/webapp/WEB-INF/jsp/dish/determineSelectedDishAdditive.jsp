@@ -23,9 +23,12 @@
 					<c:set var="pickedAdditiveSize" value="${fn:length(pickedAdditives)}" />
 					<div class="col-md-4">
 	    				<form:select path="pickedAdditive" multiple="false" size="${pickedAdditiveSize}px" style="width: 250px" cssErrorClass="errorFormInput">    	 					    					
-	    					<form:options items="${pickedAdditives}" itemLabel="name" itemValue="id" /> 					    	 					    	 					    	 				
-	    	 			</form:select> 
-	    	 			<form:errors path="pickedAdditive" cssClass="error" />
+	    				<c:forEach items="${pickedAdditives}" var="option" >	    					
+	    					<form:option  value="${option.descriptionCode}"><c:out value="${option.name}" /></form:option>
+	    				</c:forEach>	    	 					    	 					    	 				
+	    	 			</form:select> 	 				
+	    	 			 
+	    	 			<!--<form:errors path="pickedAdditive" cssClass="error" />-->
 	    	 		</div>	    
 				</div>
 		</fieldset>

@@ -25,5 +25,10 @@
 					</div>										
 				</div>						
 		</fieldset>
+		<div class="buttons">
+			<button class="btn btn-primary bold pull-right RbtnMargin" id="next-button" type="submit" name="_eventId_selectVegetable"  ><spring:message code="button.next" /></button>
+			<button class="btn btn-primary bold" id="back-button" type="submit" name="_eventId_back"><spring:message code="button.back" /></button>
+			<button class="btn btn-primary bold" id="cancel-button" type="submit" name="_eventId_cancel"><spring:message code="button.cancel" /></button>
+		</div>
 	</form:form>	
 </div>
