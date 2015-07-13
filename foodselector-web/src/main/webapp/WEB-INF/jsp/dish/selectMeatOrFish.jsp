@@ -30,15 +30,23 @@
 							</c:choose>
 							<c:choose>
 								<c:when test="${fn:length(dish.vegetables) gt 0}">
-									+ &nbsp; <c:forEach items="${dish.vegetables}" var="vegetable">
-										<c:out value="${vegetable}" />
+									+<c:forEach items="${dish.vegetables}" var="vegetable" varStatus="loop"> 
+										<c:out value="${vegetable.name}" />
+										<c:if test="${loop.index != (fn:length(dish.vegetables)-1)}">+</c:if>
 									</c:forEach>
 								</c:when>
-							</c:choose>
-							
+							</c:choose>							
 						</form:label>
 					</div>										
 				</div>						
 		</fieldset>	
+		<fieldset class="scheduler-border">
+			<legend class="scheduler-border"><spring:message code="dish_specify_meatOrFish" /></legend>
+			<div class="form-group">
+				
+			
+			</div>			
+			
+		</fieldset>
 	</form:form>
 </div>
