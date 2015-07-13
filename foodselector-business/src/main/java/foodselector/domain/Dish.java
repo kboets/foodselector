@@ -73,7 +73,7 @@ public class Dish extends AbstractEntity {
 
 	public void setAdditiveToChoose(DishAdditive additiveToChoose) {		
 		this.additiveToChoose = additiveToChoose;
-		if(pickedAdditive instanceof Potato) {
+		if(additiveToChoose instanceof Potato) {
 			setPickedAdditive(additiveToChoose);
 		}
 	}

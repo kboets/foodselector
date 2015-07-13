@@ -46,7 +46,7 @@ public class DishController {
 		//potatoes
 		dishAdditives.addAll(potatoService.getAll());  
 		return dishAdditives;		
-	}
+	}	
 	
 	
 	public List<DishAdditive> determineTypeOfAdditives(DishAdditive chosenAdditive) {
@@ -78,6 +78,8 @@ public class DishController {
 	
 	public void resetDishAdditive(Dish dish) {
 		dish.setAdditiveToChoose(null);
+		dish.setPasta(null);
+		dish.setPotato(null);
 	}
 	
 	public Event validateDetermineAdditiveType(Dish dish, MessageContext messageContext) {
@@ -102,6 +104,8 @@ public class DishController {
 			return new EventFactorySupport().success(this);	
 		}			
 	}
+	
+	
 	
 	
 	
