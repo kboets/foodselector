@@ -44,7 +44,14 @@ public class Dish extends AbstractEntity {
 	private Potato potato;	
 	@ManyToOne
 	@JoinColumn(name="dish_pasta_id")
-	private Pasta pasta; 
+	private Pasta pasta;
+	@Transient
+	private boolean meatDish;
+	@ManyToMany	
+	@JoinTable(name="DISH_MEATS", 
+		joinColumns=@JoinColumn(name="DISH_ID"), 
+		inverseJoinColumns=@JoinColumn(name="MEAT_ID"))	
+	private List<Meat> meats;
 	
 	public String getName() {
 		return name;
@@ -104,5 +111,20 @@ public class Dish extends AbstractEntity {
 
 	public void setVegetables(List<Vegetables> vegetables) {
 		this.vegetables = vegetables;
+	}	
+	public boolean isMeatDish() {
+		return meatDish;
+	}
+
+	public void setMeatDish(boolean meatDish) {
+		this.meatDish = meatDish;
+	}
+
+	public List<Meat> getMeats() {
+		return meats;
+	}
+
+	public void setMeats(List<Meat> meats) {
+		this.meats = meats;
 	}
 }

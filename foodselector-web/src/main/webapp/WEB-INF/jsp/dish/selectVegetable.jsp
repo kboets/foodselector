@@ -38,8 +38,8 @@
 	    		<form:label path="vegetables" cssClass="control-label col-md-3" ><spring:message code="dish_vegetables"/></form:label>
 	    			<c:set var="vegetablesSize" value="${fn:length(allVegetables)}" />  			
 	    			<div class="col-md-4">
-	    				<form:select path="vegetables" multiple="true" size="${vegetablesSize}px"  cssErrorClass="errorFormInput">							
-							<form:options items="${allVegetables}" itemLabel="name" itemValue="id"  />					
+	    				<form:select path="vegetables" multiple="true" size="${vegetablesSize}px"  cssErrorClass="errorFormInput" >							
+							<form:options items="${allVegetables}" itemLabel="name" itemValue="id"  cssStyle="width:200px" />					
 						</form:select>
 						<form:errors path="vegetables" cssClass="error"/>
 	    	 		</div>	    	 		 

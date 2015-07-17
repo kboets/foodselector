@@ -43,10 +43,31 @@
 		<fieldset class="scheduler-border">
 			<legend class="scheduler-border"><spring:message code="dish_specify_meatOrFish" /></legend>
 			<div class="form-group">
-				
-			
+				<form:label path="meatDish" cssClass="control-label col-md-3" >Maak uw keuze :</form:label>
+				<div class="col-md-2">
+					<form:label path="name" cssClass="control-label label-nobold">					
+						<form:radiobutton id="isMeat" path="meatDish" value="true" />&nbsp;<spring:message code="dish_meat"/>
+					</form:label>										
+				</div>
+				<div class="col-md-2">
+					<form:radiobutton id="isFish" path="meatDish" value="false" />&nbsp;<spring:message code="dish_fish"/>
+				</div>
+			</div>
+			<div id="isMeatOverview" class="form-group" >
+				<form:label path="meats" cssClass="control-label col-md-3" >blba</form:label>			
 			</div>			
-			
+						
 		</fieldset>
 	</form:form>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){	
+	$('#isMeatOverview').hide();
+	
+});
+
+$('#isMeat').click(function(){
+	
+}	
+</script>
+}

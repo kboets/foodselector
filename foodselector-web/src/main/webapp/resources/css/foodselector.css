@@ -46,7 +46,9 @@ legend.scheduler-border {
         border-bottom:none;
  }
 .RbtnMargin { margin-left: 5px; }
-
+label-nobold {
+    font-weight: normal !important;
+}
 
 
 
