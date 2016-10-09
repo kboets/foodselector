@@ -43,7 +43,7 @@ public class DishController {
 		if(pasta != null) {
 			dishAdditives.add(pasta);
 		}
-		System.out.println("D:\schijf");		
+		System.out.println("D:\schijfje");		
 
 		//potatoes
 		dishAdditives.addAll(potatoService.getAll());  
